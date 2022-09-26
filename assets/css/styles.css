@@ -68,6 +68,14 @@ button {
   margin: 0 1rem;
 }
 
+.nav__menu {
+  display: none;
+}
+
+.nav__avatar-data {
+  display: none;
+}
+
 @media screen and (min-width: 1000px) {
   .container {
     max-width: 1200px;
@@ -89,20 +97,23 @@ button {
     align-items: center;
     gap: 1rem;
   }
-}
+  .nav__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-.nav__avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
+  .nav__avatar-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-.nav__avatar-data {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  .nav__menu {
+    display: flex;
+  }
 }
 
 .nav__avatar-data > img {
@@ -138,11 +149,11 @@ button {
 .nav__logo,
 .nav__icon {
   color: var(--accent-A300);
-  font-weight: 700;
 }
 
 .nav__logo {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .nav__icon {
