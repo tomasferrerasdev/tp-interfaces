@@ -1,13 +1,13 @@
 :root {
-  --header-height: 4.5rem;
+  --header-height: 6.25rem;
 
-  --neutrals-N50: #e7e7e7;
-  --neutrals-N75: #9b9b9b;
-  --neutrals-N300: #0b0b0b;
+  --neutrals-N50: hsl(0, 0%, 91%);
+  --neutrals-N75: hsl(0, 0%, 61%);
+  --neutrals-N300: hsl(0, 0%, 4%);
 
-  --accent-A75: #ffdd96;
-  --accent-A300: #ffab00;
-  --accent-A400: #b37800;
+  --accent-A75: hsl(41, 100%, 79%);
+  --accent-A300: hsl(40, 100%, 50%);
+  --accent-A400: hsl(40, 100%, 35%);
 
   --body-font: 'Poppins', sans-serif;
 
@@ -61,4 +61,125 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nav__list {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav__link {
+    color: var(--neutrals-N50);
+  }
+
+  .nav__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.nav__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav__avatar-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav__avatar-data > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header {
+  position: fixed;
+  height: var(--header-height);
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-fixed);
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  border: 1px solid var(--accent-A300);
+  border-radius: 8px;
+  width: 100%;
+  padding: 0 1rem;
+  background-color: var(--neutrals-N300);
+}
+
+.nav__logo,
+.nav__icon {
+  color: var(--accent-A300);
+  font-weight: 700;
+}
+
+.nav__logo {
+  font-size: 1.2rem;
+}
+
+.nav__icon {
+  font-size: 2.3rem;
+}
+
+.hero__section {
+  background-image: url(../img/upcoming-background.png);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.game__section {
+  padding: var(--header-height) 0;
+  height: calc(100vh);
+  display: flex;
+  align-items: center;
+}
+
+.game__data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game__data > p {
+  font-size: 24px;
+}
+
+.cta {
+  padding: 0.5rem 1rem;
+  background-image: url(../img/CTA.png);
+  color: var(--neutrals-N300);
+  font-weight: 800;
+  font-size: 24px;
 }

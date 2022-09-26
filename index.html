@@ -8,13 +8,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <title>RockinGames</title>
   </head>
   <body>
-    <h1>RockinGames</h1>
+    <div class="hero__section">
+      <header class="header" id="header">
+        <nav class="nav container">
+          <div class="nav__container">
+            <a href="#" class="nav__logo">Rockingames</a>
+
+            <div class="nav__menu" id="nav__menu">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Free</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">PlayStation 2</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">RPG</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Premium</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="nav__avatar">
+            <div class="nav__avatar-data">
+              <img
+                src="https://images.unsplash.com/photo-1507114845806-0347f6150324?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                alt=""
+              />
+              <p>Eddie C. Blaylock</p>
+            </div>
+            <i class="bx bx-menu nav__icon"></i>
+          </div>
+        </nav>
+      </header>
+
+      <div class="game__section" id="game-section">
+        <div class="game__container container">
+          <img src="./assets/img/stalker-title.png" alt="" />
+          <div class="game__data">
+            <a href="#" class="cta"> PREORDER NOW </a>
+            <p>Release august 13 2023</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
