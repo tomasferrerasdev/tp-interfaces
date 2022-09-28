@@ -32,4 +32,4 @@ setInterval(() => {
   const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0;
   progressBar.style.setProperty('--width', width + 0.1);
   if (width === 100) loaderContainer.classList.add('remove');
-}, 6);
+}, 4);
