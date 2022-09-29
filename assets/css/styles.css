@@ -132,51 +132,10 @@ button {
   padding: 11.75rem 0;
 }
 
-<<<<<<< HEAD
-@media screen and (min-width: 900px) {
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .nav__list {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .nav__link {
-    color: var(--neutrals-N50);
-  }
-
-  .nav__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-  .nav__avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .nav__avatar-data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .nav__menu {
-    display: flex;
-  }
-=======
 .section__title {
   font-size: var(--h3-size);
   font-weight: var(--font-bold);
   margin-bottom: 2.5rem;
->>>>>>> a36ea30cd51dffd2db1b1e45dfb8f5e8704ffb5d
 }
 
 .main {
