@@ -99,7 +99,7 @@ button {
 .fs-h3 {
   font-size: var(--h3-size);
 }
-.fs-h4{
+.fs-h4 {
   font-size: var(--h4-size);
 }
 .p-1 {
@@ -285,7 +285,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .home__data-cta > button {
@@ -351,10 +351,81 @@ button {
   display: none;
 }
 
-.nav-avatar, .nav-item-container{
+.nav-avatar,
+.nav-item-container {
   display: none;
 }
 
+.cta {
+  border: none;
+  padding: 1.5rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  background-color: transparent;
+  color: var(--accent-A300);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-A300);
+  transition: all 0.5s;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-A300);
+  transition: all 0.5s;
+}
+
+.cta:hover::before {
+  left: 0;
+}
+
+.cta:hover::after {
+  right: 0;
+}
+
+.cta-span::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  right: 0%;
+  width: 2px;
+  height: 100%;
+  background-color: var(--accent-A300);
+  transition: all 0.5s;
+}
+
+.cta:hover .cta-span:before {
+  top: 0;
+}
+
+.cta-span::after {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: 0%;
+  width: 2px;
+  height: 100%;
+  background-color: var(--accent-A300);
+  transition: all 0.5s;
+}
+
+.cta:hover .cta-span::after {
+  bottom: 0;
+}
 
 @media screen and (min-width: 900px) {
   .header {
@@ -376,28 +447,28 @@ button {
     margin: 0;
   }
 
-  .nav-right, .nav-avatar{
+  .nav-right,
+  .nav-avatar {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
   }
 
-  .nav-avatar img{
+  .nav-avatar img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
 
-  .nav-left, .nav-item-container{
+  .nav-left,
+  .nav-item-container {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
-  .nav-item-container a{
-    color : var(--neutrals-N50)
+  .nav-item-container a {
+    color: var(--neutrals-N50);
   }
-
 }
-
