@@ -25,11 +25,8 @@ navLink.forEach((n) => n.addEventListener('click', linkAction));
 
 // PROGRESS BAR
 
-const body = document.getElementById('body');
 const progressBar = document.getElementById('progress-bar');
 const loaderContainer = document.getElementById('loader-container');
-
-body.classList.add('loading');
 
 setInterval(() => {
   const computedStyle = getComputedStyle(progressBar);
@@ -37,7 +34,6 @@ setInterval(() => {
   progressBar.style.setProperty('--width', width + 0.1);
   if (width === 100) {
     loaderContainer.classList.add('remove');
-    body.classList.remove('loading');
   }
 }, 4);
 
