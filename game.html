@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RockinGames</title>
+  </head>
+
+  <body id="body">
+    <div class="container" id="loader-container">
+      <div class="loader">
+        <svg
+          id="text"
+          viewBox="0 0 268 268"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M99.3221 149.241L99.4646 149.5H99.76H124.464H125.334L124.896 148.748L104.477 113.709C110.834 111.699 115.682 108.376 118.982 103.723C122.458 98.9425 124.196 93.5065 124.196 87.432C124.196 82.0606 122.939 77.1949 120.418 72.8469C117.888 68.3989 114.054 64.9211 108.942 62.4082C103.907 59.8909 97.8106 58.644 90.672 58.644H53.936H53.436V59.144V149V149.5H53.936H75.824H76.324V149V115.58H80.7766L99.3221 149.241ZM81.5099 114.839L81.3674 114.58H81.072H75.824H75.324V115.08V148.5H54.436V59.644H90.672C97.6981 59.644 103.633 60.8716 108.496 63.3032L108.499 63.3047C113.455 65.7407 117.13 69.0886 119.549 73.3432L119.551 73.3469C121.979 77.5318 123.196 82.2228 123.196 87.432C123.196 93.303 121.521 98.5327 118.172 103.138L118.168 103.143C114.916 107.728 110.07 111 103.585 112.937L102.976 113.119L103.296 113.668L123.594 148.5H100.055L81.5099 114.839ZM75.324 99.592V100.092H75.824H89.392C93.4737 100.092 96.6105 99.094 98.7018 97.0053C100.87 94.9251 101.924 92.0081 101.924 88.328C101.924 84.8103 100.865 81.9821 98.7018 79.9067C96.6105 77.8179 93.4737 76.82 89.392 76.82H75.824H75.324V77.32V99.592ZM98.0061 96.287L98.006 96.2869L97.9985 96.2944C96.1644 98.1285 93.3292 99.092 89.392 99.092H76.324V77.82H89.392C93.3292 77.82 96.1644 78.7835 97.9985 80.6176L97.9984 80.6176L98.0061 80.625C99.936 82.4745 100.924 85.0211 100.924 88.328C100.924 91.8138 99.9312 94.4421 98.0061 96.287ZM191.145 146.799L191.286 147.06L201.345 124.52C193.906 119.244 184.755 116.62 173.92 116.62C164.97 116.62 156.99 118.6 149.995 122.572C143.002 126.458 137.517 131.943 133.548 139.019L133.547 139.021C129.661 146.016 127.724 153.995 127.724 162.944C127.724 171.893 129.661 179.872 133.547 186.867L133.549 186.871C137.519 193.861 143.003 199.345 149.993 203.315L149.999 203.318C157.078 207.203 165.099 209.14 174.048 209.14C181.623 209.14 188.441 207.676 194.49 204.738C200.522 201.808 205.487 197.968 209.377 193.215C213.342 188.474 216.149 183.337 217.791 177.806L217.812 177.737V177.664V157.312V156.812H217.312H169.696H169.196V157.312V173.44V173.94H169.696H196.77C195.081 178.655 192.482 182.269 188.986 184.812L188.981 184.815C185.413 187.471 181 188.812 175.712 188.812C167.967 188.812 161.921 186.543 157.512 182.053C153.187 177.477 150.996 171.129 150.996 162.944C150.996 155.273 153.101 149.219 157.263 144.724L157.266 144.72C161.426 140.144 166.96 137.844 173.92 137.844C177.95 137.844 181.406 138.641 184.305 140.215L184.313 140.219L184.32 140.223C187.302 141.714 189.573 143.903 191.145 146.799ZM156.789 182.744L156.795 182.75C161.432 187.474 167.758 189.812 175.712 189.812C181.175 189.812 185.807 188.423 189.577 185.619C193.427 182.817 196.213 178.799 197.946 173.598L198.166 172.94H197.472H170.196V157.812H216.812V177.591C215.209 182.956 212.477 187.95 208.608 192.575L208.605 192.579C204.815 197.212 199.968 200.966 194.054 203.838C188.157 206.702 181.492 208.14 174.048 208.14C165.249 208.14 157.399 206.237 150.484 202.443C143.652 198.563 138.3 193.21 134.42 186.379C130.627 179.55 128.724 171.743 128.724 162.944C128.724 154.144 130.627 146.336 134.421 139.507C138.301 132.59 143.653 127.239 150.483 123.445L150.487 123.443C157.315 119.565 165.122 117.62 173.92 117.62C184.589 117.62 193.528 120.201 200.767 125.336L200.769 125.337C207.922 130.353 212.707 137.252 215.125 146.06H191.879C190.215 143.114 187.844 140.869 184.775 139.332C181.703 137.667 178.079 136.844 173.92 136.844C166.716 136.844 160.901 139.237 156.528 144.045C152.158 148.766 149.996 155.084 149.996 162.944C149.996 171.312 152.241 177.933 156.789 182.744ZM8 0.5H260C264.142 0.5 267.5 3.85786 267.5 8V260C267.5 264.142 264.142 267.5 260 267.5H7.99999C3.85786 267.5 0.5 264.142 0.5 260V7.99999C0.5 3.85786 3.85786 0.5 8 0.5ZM250.5 234C250.5 244.217 242.217 252.5 232 252.5C221.783 252.5 213.5 244.217 213.5 234C213.5 223.783 221.783 215.5 232 215.5C242.217 215.5 250.5 223.783 250.5 234ZM232 253.5C242.77 253.5 251.5 244.77 251.5 234C251.5 223.23 242.77 214.5 232 214.5C221.23 214.5 212.5 223.23 212.5 234C212.5 244.77 221.23 253.5 232 253.5Z"
+            stroke="#FFAB00"
+          />
+        </svg>
+        <div
+          class="progress-bar"
+          data-label="loading..."
+          style="--width: 10"
+          id="progress-bar"
+        ></div>
+      </div>
+    </div>
+    <div class="hero" id="hero">
+      <div class="game__main">
+        <header class="header" id="header">
+          <nav class="nav container">
+            <div class="nav-left">
+              <a href="#" class="nav__logo">
+                <img
+                  src="./assets/img/logo.svg"
+                  alt="RockinGames logo"
+                  class="nav__logo-img"
+                />
+              </a>
+              <div class="nav-item-container">
+                <a href="#" class="fw-regular p-2">Free</a>
+                <a href="#" class="fw-regular p-2">PlayStation 2</a>
+                <a href="#" class="fw-regular p-2">RPG</a>
+                <a href="#" class="fw-regular p-2">Premium</a>
+              </div>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+              <div class="nav__avatar">
+                <img src="./assets/img/avatar.png" alt="avatar image" />
+                <div class="nav__menu-data">
+                  <div class="nav__menu-text">
+                    <p class="p-1 fw-bold">Eddie C. Blaylock</p>
+                    <p class="p-1 fw-regular">eddieblaylock@gmail.com</p>
+                  </div>
+                  <button class="fw-bold">Log out</button>
+                </div>
+              </div>
+
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">Free</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">PlayStation 2</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">RPG</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">Premium</a>
+                </li>
+              </ul>
+
+              <div class="nav__footer">
+                <a href="#" class="fw-bold nav__link">Youtube</a>
+                <a href="#" class="fw-bold nav__link">Instagram</a>
+                <a href="#" class="fw-bold nav__link">Twitter</a>
+                <a href="#" class="fw-bold nav__link">Discord</a>
+              </div>
+
+              <div class="nav__close" id="nav-close">
+                <i class="bx bx-x"></i>
+              </div>
+            </div>
+
+            <div class="nav-right">
+              <div class="nav-avatar">
+                <img src="./assets/img/avatar.png" alt="avatar image" />
+                <p class="p-1 fw-regular">Eddie C. Blaylock</p>
+              </div>
+              <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-menu"></i>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="showcase" id="showcase">
+          <div class="showcase__container container">
+            <div class="breadcrumb">
+              <div class="breadcrumb__list">
+                <a href="#">Home</a>
+                <img src="./assets/img/arrow.svg" alt="arrow svg" />
+                <a href="#">Game</a>
+                <img src="./assets/img/arrow.svg" alt="arrow svg" />
+                <a href="#">Connect4</a>
+              </div>
+            </div>
+
+            <div class="game__container">
+              <img
+                class="game__img"
+                src="./assets/img/game-showcase.png"
+                alt="game cover image"
+              />
+
+              <div class="vl">
+                <div class="vl__content"></div>
+              </div>
+
+              <div class="game__data">
+                <div class="game__data-content">
+                  <h1>How to play</h1>
+                  <p>
+                    First, decide who goes first and what color each player will
+                    have. Players must alternate turns, and only one disc can be
+                    dropped in each turn. On your turn, drop one of your colored
+                    discs from the top into any of the seven slots The game ends
+                    when there is a 4-in-a-row or a stalemate. The starter of
+                    the previous game goes second on the next game.
+                  </p>
+                </div>
+                <div class="game__data-content">
+                  <h1>Objective</h1>
+                  <p>
+                    To be the first player to connect 4 of the same colored
+                    discs in a row (either vertically, horizontally, or
+                    diagonally)
+                  </p>
+                </div>
+
+                <div class="game__data-content">
+                  <h1>Share with your friends</h1>
+                  <div class="social">
+                    <img
+                      src="./assets/img/social/discord-line.svg"
+                      alt="discord logo"
+                    />
+                    <img
+                      src="./assets/img/social/facebook-box-line.svg"
+                      alt="facebook logo"
+                    />
+                    <img
+                      src="./assets/img/social/twitch-line.svg"
+                      alt="twitch logo"
+                    />
+                    <img
+                      src="./assets/img/social/twitter-line.svg"
+                      alt="twitter logo"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr container"></div>
+
+        <div class="game__carousel container">
+          <img src="./assets/img/Primm_Slim 1.png" alt="primm image" />
+          <img src="./assets/img/Primm_Slim 2.png" alt="primm image" />
+          <img src="./assets/img/Primm_Slim 3.png" alt="primm image" />
+          <img src="./assets/img/Primm_Slim 4.png" alt="primm image" />
+        </div>
+
+        <div class="game__story container">
+          <h1>Story:</h1>
+          <p class="p-2 fw-regular">
+            After surviving a bullet to the head, Courier Six traverses the
+            post-apocalyptic Mojave desert in search of the men who wronged him,
+            while making an impact on thousands in the process. As you were
+            delivering a package to the New Vegas strip, a strange man stops you
+            and captures you, only for you to be shot in the head. He leaves you
+            for dead and takes your package. You awaken in a clinic in the town
+            of Goodsprings, where a doctor heals you and helps you get back on
+            your feet. You have to defeat this strange man and have him pay for
+            his crimes and find out what's in the package.. or betray the
+            residents of Goodsprings and other small towns for their money and
+            property.
+          </p>
+          <p class="p-2 fw-regular">
+            After surviving a bullet to the head, Courier Six traverses the
+            post-apocalyptic Mojave desert in search of the men who wronged him,
+            while making an impact on thousands in the process. As you were
+            delivering a package to the New Vegas strip, a strange man stops you
+            and captures you, only for you to be shot in the head. He leaves you
+            for dead and takes your package. You awaken in a clinic in the town
+            of Goodsprings, where a doctor heals you and helps you get back on
+            your feet. You have to defeat this strange man and have him pay for
+            his crimes and find out what's in the package.. or betray the
+            residents of Goodsprings and other small towns for their money and
+            property.
+          </p>
+        </div>
+
+        <div class="game__images container">
+          <img src="./assets/img/fnv-fallout.gif" alt="gif" />
+          <img src="./assets/img/giphy.gif" alt="gif" />
+        </div>
+
+        <div class="comment__section">
+          <div class="comment__section-container container">
+            <div class="form">
+              <div class="comment__box">
+                <p class="p-2">Leave your comment here...</p>
+              </div>
+              <button class="button p-2">Share</button>
+            </div>
+            <div class="comment">
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                    ironically this "verified" game is about the only one that
+                    doesnt work on my deck. is "verified" game is about the only
+                    one that doesnt work on my deck.is "verified" game is about
+                    the only one that doesnt work on my deck.is "verified" game
+                    is about the only one that doesnt work on my deck.is
+                    "verified" game is about the only one that doesnt work on my
+                    deck.is "verified" game is about the only one that doesnt
+                    work on my deck.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                    ironically this "verified" game is about the only one that
+                    doesnt work on my deck.is "verified" game is about the only
+                    one that doesnt work on my deck.is "verified" game is about
+                    the only one that doesnt work on my deck.is "verified" game
+                    is about the only one that doesnt work on my deck.is
+                    "verified" game is about the only one that doesnt work on my
+                    deck.is "verified" game is about the only one that doesnt
+                    work on my deck.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <div class="footer__body-list">
+              <ul aria-label="FIRST">
+                <p class="p-2 fw-bold">Our Products</p>
+                <li>Our strategy: Powering Progress</li>
+                <li>Business customers</li>
+                <li>Investors</li>
+                <li>Careers</li>
+              </ul>
+            </div>
+
+            <div class="footer__vl"></div>
+
+            <div class="footer__body-list">
+              <ul aria-label="SECOND">
+                <p class="p-2 fw-bold">More about</p>
+                <li>Who we are</li>
+                <li>What we do</li>
+                <li>Our Values</li>
+                <li>Leadership</li>
+                <li>Our major projects</li>
+                <li>The brand</li>
+                <li>Annual publications</li>
+              </ul>
+            </div>
+            <div class="footer__body-list">
+              <ul aria-label="THIRD">
+                <p class="p-2 fw-bold">Can we help?</p>
+                <li>Job search</li>
+                <li>RockinGames global helpline</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr container"></div>
+
+        <div class="footer__bottom">
+          <div class="footer__bottom-container container">
+            <ul>
+              <li>Accessibility</li>
+              <li>Terms and conditions</li>
+              <li>Privacy notices</li>
+              <li>Cookie policy</li>
+              <li>Fraud and scam alert</li>
+              <li>Contact us</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
