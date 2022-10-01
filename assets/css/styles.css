@@ -741,6 +741,10 @@ img {
   gap: 17px;
 }
 
+.form p {
+  color: var(--accent-A300);
+}
+
 .comment {
   display: flex;
   gap: 50px;
@@ -753,6 +757,7 @@ img {
   width: 100%;
   border: 1px solid var(--accent-A300);
   padding: 1rem;
+  background: transparent;
 }
 
 .comment__box > p {
@@ -854,4 +859,16 @@ img {
 .footer__bottom-container > ul {
   display: flex;
   justify-content: space-between;
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  color: var(--accent-A300);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none;
 }
