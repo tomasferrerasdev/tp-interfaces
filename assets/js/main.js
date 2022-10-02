@@ -24,6 +24,7 @@ const linkAction = () => {
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
 // PROGRESS BAR
+
 const progressBar = document.getElementById('progress-bar');
 const loaderContainer = document.getElementById('loader-container');
 
@@ -31,136 +32,35 @@ setInterval(() => {
   const computedStyle = getComputedStyle(progressBar);
   const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0;
   progressBar.style.setProperty('--width', width + 0.1);
-  if (width === 100) loaderContainer.classList.add('remove');
+  if (width === 100) {
+    loaderContainer.classList.add('remove');
+  }
 }, 4);
 
-
-// let slideIndex = 1;
-// showSlides(slideIndex);
-// function plusSlides(n) {
-//     showSlides(slideIndex += n);
-// }
-// function showSlides(n) {
-//     var i;
-//     var slides = document.getElementsByClassName("mySlides");
-//     if (n > slides.length) {slideIndex = 1}
-//     if (n < 1) {slideIndex = slides.length}
-//     for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//     }
-//     slides[slideIndex-1].style.display = "block";
-// }
-
-// let smallSlideIndex = 1;
-
-
-// function plusSmallSlides(n, v) {
-//   showSmallSlides(smallSlideIndex += n, v)
-// }
-
-// function showSmallSlides(n , v) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySmallSlides");
-//   if (n > slides.length) {smallSlideIndex = 1}
-//   if (n < 1) {smallSlideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//   }
-//   if(v == 'dekstop'){
-//     slides[smallSlideIndex-1].style.display = "block";
-//     slides[smallSlideIndex].style.display = "block";
-//     slides[smallSlideIndex+1].style.display = "block";
-//   }else{
-//     slides[smallSlideIndex-1].style.display = "block";
-//   }
-// }
-
-
-const containerS = document.querySelector('.slideshow-smallContainer');
-const cardsS = document.querySelector('.freeGames-Carousel');
-
-/* keep track of user's mouse down and up */
-let isPressedDownS = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpaceS;
-
-containerS.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDownS = true;
-  cursorXSpaceS = e.offsetX - cardsS.offsetLeft;
-  containerS.style.cursor = 'grabbing';
-});
-
-containerS.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  containerS.style.cursor = 'grab';
-});
-
-window.addEventListener('mouseup', () => {
-  isPressedDownS = false;
-});
-
-containerS.addEventListener('mousemove', (e) => {
-  if (!isPressedDownS) return;
-  e.preventDefault();
-  cardsS.style.left = `${e.offsetX - cursorXSpaceS}px`;
-  boundCardsS();
-});
-
-function boundCardsS() {
-  const container_rect = containerS.getBoundingClientRect();
-  const cards_rect = cardsS.getBoundingClientRect();
-
-  if (parseInt(cardsS.style.left) > 0) {
-    cardsS.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cardsS.style.left = `-${cards_rect.width - container_rect.width}px`;
-  }
+var slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+  showSlides((slideIndex += n));
 }
-
-
-const container = document.querySelector('.slideshow-container');
-const cards = document.querySelector('.cards');
-
-/* keep track of user's mouse down and up */
-let isPressedDown = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpace;
-
-container.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDown = true;
-  cursorXSpace = e.offsetX - cards.offsetLeft;
-  container.style.cursor = 'grabbing';
-});
-
-container.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  container.style.cursor = 'grab';
-});
-
-window.addEventListener('mouseup', () => {
-  isPressedDown = false;
-});
-
-container.addEventListener('mousemove', (e) => {
-  if (!isPressedDown) return;
-  e.preventDefault();
-  cards.style.left = `${e.offsetX - cursorXSpace}px`;
-  boundCards();
-});
-
-function boundCards() {
-  const container_rect = container.getBoundingClientRect();
-  const cards_rect = cards.getBoundingClientRect();
-
-  if (parseInt(cards.style.left) > 0) {
-    cards.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cards.style.left = `-${cards_rect.width - container_rect.width}px`;
-  }
+function currentSlide(n) {
+  showSlides((slideIndex = n));
 }
-
-
-
-
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName('mySlides');
+  var dots = document.getElementsByClassName('dot');
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].className += ' active';
+}
