@@ -117,6 +117,11 @@ button {
   font-weight: var(--font-regular);
 }
 
+.tittle-carousel{
+  color: var(--neutrals-N50);
+  border-bottom: 1px solid var(--neutrals-N50);
+}
+
 /* section/container classes */
 .container {
   max-width: 1200px;
@@ -427,13 +432,12 @@ button {
   bottom: 0;
 }
 
-.mySlides {display: none}
+
 
 img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
    max-width: 1200px;
- 
    position: relative;
    margin: auto;
 }
@@ -479,19 +483,26 @@ img {vertical-align: middle;}
    position: absolute;
    top: 0;
 }
-/* The dots/bullets/indicators */
-.dot {
-   cursor: pointer;
-   height: 15px;
-   width: 15px;
-   margin: 0 2px;
-   background-color: #bbb;
-   border-radius: 50%;
-   display: inline-block;
-   transition: background-color 0.6s ease;
+
+/* Recommended Carousel */
+
+.slideshow-smallContainer , .slideshow-container{
+  position: relative;
+  max-width: 1000px;
+  height: 900px;
+  overflow: hidden;
+  cursor: grab;
 }
-.active, .dot:hover {
-   background-color: #717171;
+
+.cards{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  grid-gap: 50px;
+  max-height: 900px;
+  pointer-events: none;
 }
 
 .card{
@@ -499,17 +510,16 @@ img {vertical-align: middle;}
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
-  height: 600px;
 }
 
 .img-card , .information-card {
   flex: 1;
 }
-.img-card img{
+/* .img-card img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 .information-card{
   display: flex;
@@ -538,6 +548,53 @@ img {vertical-align: middle;}
   flex-direction: column;
   gap: 2rem;
 }
+
+
+/* Free Games */
+
+.small-card{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+
+.small-card button{
+  width: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-A300);
+  background-color: transparent;
+  color: var(--accent-A300);
+  padding: 12px 16px;
+}
+
+
+.img-smallCard, .information-SmallCard{
+  flex: 1;
+}
+
+.img-smallCard img{
+  max-width: 300px;
+  max-height: 350px;
+}
+
+.information-SmallCard{
+  display: flex;
+  flex-direction: column;
+}
+
+.freeGames-Carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(9, 300px);
+  grid-gap: 50px;
+  pointer-events: none;
+}
+
+
 
 @media screen and (min-width: 900px) {
   .header {
@@ -584,9 +641,22 @@ img {vertical-align: middle;}
     color: var(--neutrals-N50);
   }
 
+  .slideshow-smallContainer{
+    max-width: 100%;
+  }
+
+  .cards{
+    grid-template-columns: repeat(3, 1000px);
+  }
+
   .card{
    flex-direction: row;
    gap: 2rem;
+  }
+
+  .small-card{
+    height: 650px; 
+    width: 100%;
   }
 
 }
