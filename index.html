@@ -1,293 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="shortcut icon"
-      href="./assets/img/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>RockinGames</title>
-  </head>
 
-  <body>
-    <div class="container" id="loader-container">
-      <div class="loader">
-        <svg
-          id="text"
-          viewBox="0 0 268 268"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M99.3221 149.241L99.4646 149.5H99.76H124.464H125.334L124.896 148.748L104.477 113.709C110.834 111.699 115.682 108.376 118.982 103.723C122.458 98.9425 124.196 93.5065 124.196 87.432C124.196 82.0606 122.939 77.1949 120.418 72.8469C117.888 68.3989 114.054 64.9211 108.942 62.4082C103.907 59.8909 97.8106 58.644 90.672 58.644H53.936H53.436V59.144V149V149.5H53.936H75.824H76.324V149V115.58H80.7766L99.3221 149.241ZM81.5099 114.839L81.3674 114.58H81.072H75.824H75.324V115.08V148.5H54.436V59.644H90.672C97.6981 59.644 103.633 60.8716 108.496 63.3032L108.499 63.3047C113.455 65.7407 117.13 69.0886 119.549 73.3432L119.551 73.3469C121.979 77.5318 123.196 82.2228 123.196 87.432C123.196 93.303 121.521 98.5327 118.172 103.138L118.168 103.143C114.916 107.728 110.07 111 103.585 112.937L102.976 113.119L103.296 113.668L123.594 148.5H100.055L81.5099 114.839ZM75.324 99.592V100.092H75.824H89.392C93.4737 100.092 96.6105 99.094 98.7018 97.0053C100.87 94.9251 101.924 92.0081 101.924 88.328C101.924 84.8103 100.865 81.9821 98.7018 79.9067C96.6105 77.8179 93.4737 76.82 89.392 76.82H75.824H75.324V77.32V99.592ZM98.0061 96.287L98.006 96.2869L97.9985 96.2944C96.1644 98.1285 93.3292 99.092 89.392 99.092H76.324V77.82H89.392C93.3292 77.82 96.1644 78.7835 97.9985 80.6176L97.9984 80.6176L98.0061 80.625C99.936 82.4745 100.924 85.0211 100.924 88.328C100.924 91.8138 99.9312 94.4421 98.0061 96.287ZM191.145 146.799L191.286 147.06L201.345 124.52C193.906 119.244 184.755 116.62 173.92 116.62C164.97 116.62 156.99 118.6 149.995 122.572C143.002 126.458 137.517 131.943 133.548 139.019L133.547 139.021C129.661 146.016 127.724 153.995 127.724 162.944C127.724 171.893 129.661 179.872 133.547 186.867L133.549 186.871C137.519 193.861 143.003 199.345 149.993 203.315L149.999 203.318C157.078 207.203 165.099 209.14 174.048 209.14C181.623 209.14 188.441 207.676 194.49 204.738C200.522 201.808 205.487 197.968 209.377 193.215C213.342 188.474 216.149 183.337 217.791 177.806L217.812 177.737V177.664V157.312V156.812H217.312H169.696H169.196V157.312V173.44V173.94H169.696H196.77C195.081 178.655 192.482 182.269 188.986 184.812L188.981 184.815C185.413 187.471 181 188.812 175.712 188.812C167.967 188.812 161.921 186.543 157.512 182.053C153.187 177.477 150.996 171.129 150.996 162.944C150.996 155.273 153.101 149.219 157.263 144.724L157.266 144.72C161.426 140.144 166.96 137.844 173.92 137.844C177.95 137.844 181.406 138.641 184.305 140.215L184.313 140.219L184.32 140.223C187.302 141.714 189.573 143.903 191.145 146.799ZM156.789 182.744L156.795 182.75C161.432 187.474 167.758 189.812 175.712 189.812C181.175 189.812 185.807 188.423 189.577 185.619C193.427 182.817 196.213 178.799 197.946 173.598L198.166 172.94H197.472H170.196V157.812H216.812V177.591C215.209 182.956 212.477 187.95 208.608 192.575L208.605 192.579C204.815 197.212 199.968 200.966 194.054 203.838C188.157 206.702 181.492 208.14 174.048 208.14C165.249 208.14 157.399 206.237 150.484 202.443C143.652 198.563 138.3 193.21 134.42 186.379C130.627 179.55 128.724 171.743 128.724 162.944C128.724 154.144 130.627 146.336 134.421 139.507C138.301 132.59 143.653 127.239 150.483 123.445L150.487 123.443C157.315 119.565 165.122 117.62 173.92 117.62C184.589 117.62 193.528 120.201 200.767 125.336L200.769 125.337C207.922 130.353 212.707 137.252 215.125 146.06H191.879C190.215 143.114 187.844 140.869 184.775 139.332C181.703 137.667 178.079 136.844 173.92 136.844C166.716 136.844 160.901 139.237 156.528 144.045C152.158 148.766 149.996 155.084 149.996 162.944C149.996 171.312 152.241 177.933 156.789 182.744ZM8 0.5H260C264.142 0.5 267.5 3.85786 267.5 8V260C267.5 264.142 264.142 267.5 260 267.5H7.99999C3.85786 267.5 0.5 264.142 0.5 260V7.99999C0.5 3.85786 3.85786 0.5 8 0.5ZM250.5 234C250.5 244.217 242.217 252.5 232 252.5C221.783 252.5 213.5 244.217 213.5 234C213.5 223.783 221.783 215.5 232 215.5C242.217 215.5 250.5 223.783 250.5 234ZM232 253.5C242.77 253.5 251.5 244.77 251.5 234C251.5 223.23 242.77 214.5 232 214.5C221.23 214.5 212.5 223.23 212.5 234C212.5 244.77 221.23 253.5 232 253.5Z"
-            stroke="#FFAB00"
-          />
-        </svg>
-        <div
-          class="progress-bar"
-          data-label="loading..."
-          style="--width: 10"
-          id="progress-bar"
-        ></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <title>RockinGames</title>
+</head>
+
+<body>
+  <div class="container" id="loader-container">
+    <div class="loader">
+      <svg id="text" viewBox="0 0 268 268" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M99.3221 149.241L99.4646 149.5H99.76H124.464H125.334L124.896 148.748L104.477 113.709C110.834 111.699 115.682 108.376 118.982 103.723C122.458 98.9425 124.196 93.5065 124.196 87.432C124.196 82.0606 122.939 77.1949 120.418 72.8469C117.888 68.3989 114.054 64.9211 108.942 62.4082C103.907 59.8909 97.8106 58.644 90.672 58.644H53.936H53.436V59.144V149V149.5H53.936H75.824H76.324V149V115.58H80.7766L99.3221 149.241ZM81.5099 114.839L81.3674 114.58H81.072H75.824H75.324V115.08V148.5H54.436V59.644H90.672C97.6981 59.644 103.633 60.8716 108.496 63.3032L108.499 63.3047C113.455 65.7407 117.13 69.0886 119.549 73.3432L119.551 73.3469C121.979 77.5318 123.196 82.2228 123.196 87.432C123.196 93.303 121.521 98.5327 118.172 103.138L118.168 103.143C114.916 107.728 110.07 111 103.585 112.937L102.976 113.119L103.296 113.668L123.594 148.5H100.055L81.5099 114.839ZM75.324 99.592V100.092H75.824H89.392C93.4737 100.092 96.6105 99.094 98.7018 97.0053C100.87 94.9251 101.924 92.0081 101.924 88.328C101.924 84.8103 100.865 81.9821 98.7018 79.9067C96.6105 77.8179 93.4737 76.82 89.392 76.82H75.824H75.324V77.32V99.592ZM98.0061 96.287L98.006 96.2869L97.9985 96.2944C96.1644 98.1285 93.3292 99.092 89.392 99.092H76.324V77.82H89.392C93.3292 77.82 96.1644 78.7835 97.9985 80.6176L97.9984 80.6176L98.0061 80.625C99.936 82.4745 100.924 85.0211 100.924 88.328C100.924 91.8138 99.9312 94.4421 98.0061 96.287ZM191.145 146.799L191.286 147.06L201.345 124.52C193.906 119.244 184.755 116.62 173.92 116.62C164.97 116.62 156.99 118.6 149.995 122.572C143.002 126.458 137.517 131.943 133.548 139.019L133.547 139.021C129.661 146.016 127.724 153.995 127.724 162.944C127.724 171.893 129.661 179.872 133.547 186.867L133.549 186.871C137.519 193.861 143.003 199.345 149.993 203.315L149.999 203.318C157.078 207.203 165.099 209.14 174.048 209.14C181.623 209.14 188.441 207.676 194.49 204.738C200.522 201.808 205.487 197.968 209.377 193.215C213.342 188.474 216.149 183.337 217.791 177.806L217.812 177.737V177.664V157.312V156.812H217.312H169.696H169.196V157.312V173.44V173.94H169.696H196.77C195.081 178.655 192.482 182.269 188.986 184.812L188.981 184.815C185.413 187.471 181 188.812 175.712 188.812C167.967 188.812 161.921 186.543 157.512 182.053C153.187 177.477 150.996 171.129 150.996 162.944C150.996 155.273 153.101 149.219 157.263 144.724L157.266 144.72C161.426 140.144 166.96 137.844 173.92 137.844C177.95 137.844 181.406 138.641 184.305 140.215L184.313 140.219L184.32 140.223C187.302 141.714 189.573 143.903 191.145 146.799ZM156.789 182.744L156.795 182.75C161.432 187.474 167.758 189.812 175.712 189.812C181.175 189.812 185.807 188.423 189.577 185.619C193.427 182.817 196.213 178.799 197.946 173.598L198.166 172.94H197.472H170.196V157.812H216.812V177.591C215.209 182.956 212.477 187.95 208.608 192.575L208.605 192.579C204.815 197.212 199.968 200.966 194.054 203.838C188.157 206.702 181.492 208.14 174.048 208.14C165.249 208.14 157.399 206.237 150.484 202.443C143.652 198.563 138.3 193.21 134.42 186.379C130.627 179.55 128.724 171.743 128.724 162.944C128.724 154.144 130.627 146.336 134.421 139.507C138.301 132.59 143.653 127.239 150.483 123.445L150.487 123.443C157.315 119.565 165.122 117.62 173.92 117.62C184.589 117.62 193.528 120.201 200.767 125.336L200.769 125.337C207.922 130.353 212.707 137.252 215.125 146.06H191.879C190.215 143.114 187.844 140.869 184.775 139.332C181.703 137.667 178.079 136.844 173.92 136.844C166.716 136.844 160.901 139.237 156.528 144.045C152.158 148.766 149.996 155.084 149.996 162.944C149.996 171.312 152.241 177.933 156.789 182.744ZM8 0.5H260C264.142 0.5 267.5 3.85786 267.5 8V260C267.5 264.142 264.142 267.5 260 267.5H7.99999C3.85786 267.5 0.5 264.142 0.5 260V7.99999C0.5 3.85786 3.85786 0.5 8 0.5ZM250.5 234C250.5 244.217 242.217 252.5 232 252.5C221.783 252.5 213.5 244.217 213.5 234C213.5 223.783 221.783 215.5 232 215.5C242.217 215.5 250.5 223.783 250.5 234ZM232 253.5C242.77 253.5 251.5 244.77 251.5 234C251.5 223.23 242.77 214.5 232 214.5C221.23 214.5 212.5 223.23 212.5 234C212.5 244.77 221.23 253.5 232 253.5Z"
+          stroke="#FFAB00" />
+      </svg>
+      <div class="progress-bar" data-label="loading..." style="--width: 10" id="progress-bar"></div>
     </div>
+  </div>
 
-    <div class="hero" id="hero">
-      <header class="header" id="header">
-        <nav class="nav container">
-          <div class="nav-left">
-            <a href="#" class="nav__logo">
-              <img
-                src="./assets/img/logo.svg"
-                alt="RockinGames logo"
-                class="nav__logo-img"
-              />
-            </a>
-            <div class="nav-item-container">
-              <a href="#" class="fw-regular p-2">Free</a>
-              <a href="#" class="fw-regular p-2">PlayStation 2</a>
-              <a href="#" class="fw-regular p-2">RPG</a>
-              <a href="#" class="fw-regular p-2">Premium</a>
-            </div>
+  <div class="hero" id="hero">
+    <header class="header" id="header">
+      <nav class="nav container">
+        <div class="nav-left">
+          <a href="#" class="nav__logo">
+            <img src="./assets/img/logo.svg" alt="RockinGames logo" class="nav__logo-img" />
+          </a>
+          <div class="nav-item-container">
+            <a href="#" class="fw-regular p-2">Free</a>
+            <a href="#" class="fw-regular p-2">PlayStation 2</a>
+            <a href="#" class="fw-regular p-2">RPG</a>
+            <a href="#" class="fw-regular p-2">Premium</a>
           </div>
-          <div class="nav__menu" id="nav-menu">
-            <div class="nav__avatar">
-              <img src="./assets/img/avatar.png" alt="avatar image" />
-              <div class="nav__menu-data">
-                <div class="nav__menu-text">
-                  <p class="p-1 fw-bold">Eddie C. Blaylock</p>
-                  <p class="p-1 fw-regular">eddieblaylock@gmail.com</p>
-                </div>
-                <button class="fw-bold">Log out</button>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__avatar">
+            <img src="./assets/img/avatar.png" alt="avatar image" />
+            <div class="nav__menu-data">
+              <div class="nav__menu-text">
+                <p class="p-1 fw-bold">Eddie C. Blaylock</p>
+                <p class="p-1 fw-regular">eddieblaylock@gmail.com</p>
               </div>
-            </div>
-
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">Free</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">PlayStation 2</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">RPG</a>
-              </li>
-              <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">Premium</a>
-              </li>
-            </ul>
-
-            <div class="nav__footer">
-              <a href="#" class="fw-bold nav__link">Youtube</a>
-              <a href="#" class="fw-bold nav__link">Instagram</a>
-              <a href="#" class="fw-bold nav__link">Twitter</a>
-              <a href="#" class="fw-bold nav__link">Discord</a>
-            </div>
-
-            <div class="nav__close" id="nav-close">
-              <i class="bx bx-x"></i>
+              <button class="fw-bold">Log out</button>
             </div>
           </div>
 
-          <div class="nav-right">
-            <div class="nav-avatar">
-              <img src="./assets/img/avatar.png" alt="avatar image" />
-              <p class="p-1 fw-regular">Eddie C. Blaylock</p>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-              <i class="bx bx-menu"></i>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="fw-bold fs-h3 nav__link">Free</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="fw-bold fs-h3 nav__link">PlayStation 2</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="fw-bold fs-h3 nav__link">RPG</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="fw-bold fs-h3 nav__link">Premium</a>
+            </li>
+          </ul>
+
+          <div class="nav__footer">
+            <a href="#" class="fw-bold nav__link">Youtube</a>
+            <a href="#" class="fw-bold nav__link">Instagram</a>
+            <a href="#" class="fw-bold nav__link">Twitter</a>
+            <a href="#" class="fw-bold nav__link">Discord</a>
+          </div>
+
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="nav-avatar">
+            <img src="./assets/img/avatar.png" alt="avatar image" />
+            <p class="p-1 fw-regular">Eddie C. Blaylock</p>
+          </div>
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-menu"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="home" id="home">
+      <div class="home__container container">
+        <div class="home__data">
+          <div class="home__data-cta">
+            <img src="./assets/img/stalker-title.png" alt="stalker title image" />
+            <div class="button__container">
+              <button class="cta p-1">
+                PREORDER NOW
+                <span class="cta-span"></span>
+              </button>
             </div>
           </div>
-        </nav>
-      </header>
+          <p class="fs-h4">Release August 13 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <div class="home" id="home">
-        <div class="home__container container">
-          <div class="home__data">
-            <div class="home__data-cta">
-              <img
-                src="./assets/img/stalker-title.png"
-                alt="stalker title image"
-              />
-              <div class="button__container">
-                <button class="cta p-1">
-                  PREORDER NOW
-                  <span class="cta-span"></span>
-                </button>
-              </div>
-            </div>
-            <p class="fs-h4">Release August 13 2023</p>
+  <div class="slider-wrap-showcase">
+    <div class="slider-showcase">
+      <div class="slider-inner showcase-inner">
+        <div class="item-showcase">
+          <div class="uno-showcase">
+            <img src="./assets/img/fallout.png" alt="4 en linea" />
+          </div>
+          <div class="dos-showcase">
+            <h1 class="fs-h2">4 en linea</h1>
+            <p class="p-1">
+              After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde
+              gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their
+              heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to
+              survive.
+            </p>
+            <button>PLAY</button>
+          </div>
+        </div>
+        <div class="item-showcase">
+          <div class="uno-showcase">
+            <img src="./assets/img/L_A_Noire.jpg" alt="L.A Noire" />
+          </div>
+          <div class="dos-showcase">
+            <h1 class="fs-h2">L.A. Noire</h1>
+            <p class="p-1">
+              After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde
+              gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their
+              heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to
+              survive.
+            </p>
+            <button>PLAY</button>
+          </div>
+        </div>
+        <div class="item-showcase">
+          <div class="uno-showcase">
+            <img src="./assets/img/yakuza0.png" alt="Yakuza 0 " />
+          </div>
+          <div class="dos-showcase">
+            <h1 class="fs-h2">Yakuza 0: Like a dragon(Ryu ga gotaku) </h1>
+            <p class="p-1">
+              Fight like hell through Tokyo and Osaka with protagonist Kazuma Kiryu and series regular Goro Majima. Play
+              as Kazuma Kiryu and discover how he finds himself in a world of trouble when a simple debt collection goes
+              wrong and his mark winds up murdered. Then, step into the silver-toed shoes of Goro Majima and explore his
+              “normal” life as the proprietor of a cabaret club.
+            </p>
+            <button class="p-1 fw-bold">PLAY</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="slider-wrap-showcase">
-      <div class="slider-showcase">
-        <div class="slider-inner showcase-inner">
-          <div class="item-showcase">
-            <div class="uno-showcase">
-              <img src="./assets/img/bioshock.png" alt="grim" />
-            </div>
-            <div class="dos-showcase">
-              <h1 class="p-1">ESTOY PROBANDO :V</h1>
-              <p class="p-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo corrupti quaerat rerum minus voluptatem unde
-              </p>
-              <button>PLAY</button>
-            </div>
+  <div class="slider-wrap">
+    <div class="slider">
+      <div class="slider-inner slider-2nd">
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/Fandango.png" alt="Fandango" />
           </div>
-          <div class="item-showcase">
-            <div class="uno-showcase">
-              <img src="./assets/img/bioshock.png" alt="grim" />
-            </div>
-            <div class="dos-showcase">
-              <h1 class="p-1">ESTOY PROBANDO :V</h1>
-              <p class="p-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo corrupti quaerat rerum minus voluptatem unde
-              </p>
-              <button>PLAY</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">GRIM FANDANGO</p>
+            <button >Play now for free</button>
           </div>
-          <div class="item-showcase">
-            <div class="uno-showcase">
-              <img src="./assets/img/bioshock.png" alt="grim" />
-            </div>
-            <div class="dos-showcase">
-              <h1 class="p-1">ESTOY PROBANDO :V</h1>
-              <p class="p-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo corrupti quaerat rerum minus voluptatem unde
-              </p>
-              <button>PLAY</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/mafia.png" alt="Mafia 2 Definitive Edition" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Mafia 2 Definitive Edition</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/Fallout New Vegas.jpg" alt="Fallout New Vegas" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Fallout New Vegas</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/yakuza.png" alt="Yakuza 7" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Yakuza 7</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/tortugas.png" alt="Teenage Mutant Ninja Turtles" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Teenage Mutant Ninja Turtles</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/bioshock.png" alt="Bioshock Infinite" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Bioshock Infinite</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/stalker soc.png" alt="S.T.A.L.K.E.R Shadow of Chernobyl" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">S.T.A.L.K.E.R Shadow of Chernobyl</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/stalker 2.png" alt="S.T.A.L.K.E.R 2" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">S.T.A.L.K.E.R 2</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/nhr.png" alt="nhra championship drag racing speed for all" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">NHRA Championship Drag Racing Speed for all</p>
+            <button>Play now for free</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="slider-wrap">
-      <div class="slider">
-        <div class="slider-inner">
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+  <div class="slider-wrap">
+    <div class="slider">
+      <div class="slider-inner slider-2nd">
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/tony hawks.png" alt="Tony Hawk’s pro skater 3" />
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Tony Hawk’s pro skater 3</p>
+            <button class="p-2 fw-regular">Buy Now</button>
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/Need for speed.png" alt="Need for speed: Underground" />
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Need for speed: Underground</p>
+            <button>Play now for free</button>
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/gta vice city.png" alt="Grand Theft Auto Vice City" />
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Grand Theft Auto Vice City</p>
+            <button>Play now for free</button>
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/Yakuza 7.webp" alt="Yakuza 7" />
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Yakuza 7</p>
+            <button>In Cart</button>
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/tomb raider.png" alt="Tomb Raider Anniversary" />
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Tomb Raider Anniversary</p>
+            <button>Buy Now</button>
           </div>
-          <div class="item">
-            <div class="uno">
-              <img src="./assets/img/bioshock.png" alt="" />
-            </div>
-            <div class="dos">
-              <p>GRIM FANDANGO</p>
-              <button>Play now for free</button>
-            </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/metal gear solid.png" alt="Metal Gear Solid 2: Sons of Liberty" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Metal Gear Solid 2: Sons of Liberty</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/simpsons.png" alt="The Simpsons Hit & Run" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">The Simpsons Hit & Run</p>
+            <button>Play now for free</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/transfomers.png" alt="Transformers the game" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">Transformers the game</p>
+            <button>Buy Now</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uno">
+            <img src="./assets/img/punisher.png" alt="The punisher" />
+          </div>
+          <div class="dos">
+            <p class="p-2 fw-regular">The punisher</p>
+            <button>Play now for free</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="./assets/js/main.js"></script>
-  </body>
+  <script src="./assets/js/main.js"></script>
+</body>
+
 </html>
