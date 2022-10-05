@@ -79,90 +79,106 @@ setInterval(() => {
 // }
 
 
-const containerS = document.querySelector('.slideshow-smallContainer');
-const cardsS = document.querySelector('.freeGames-Carousel');
+// const containerS = document.querySelector('.slideshow-smallContainer');
+// const cardsS = document.querySelector('.freeGames-Carousel');
 
-/* keep track of user's mouse down and up */
-let isPressedDownS = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpaceS;
+// /* keep track of user's mouse down and up */
+// let isPressedDownS = false;
+// /* x horizontal space of cursor from inner container */
+// let cursorXSpaceS;
 
-containerS.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDownS = true;
-  cursorXSpaceS = e.offsetX - cardsS.offsetLeft;
-  containerS.style.cursor = 'grabbing';
-});
+// containerS.addEventListener('mousedown', (e) => {
+//   console.log('CHOTA ABAJO')
+//   isPressedDownS = true;
+//   cursorXSpaceS = e.offsetX - cardsS.offsetLeft;
+//   containerS.style.cursor = 'grabbing';
+// });
 
-containerS.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  containerS.style.cursor = 'grab';
-});
+// containerS.addEventListener('mouseup', () => {
+//   console.log('CHOTA ARRIBA')
+//   containerS.style.cursor = 'grab';
+// });
 
-window.addEventListener('mouseup', () => {
-  isPressedDownS = false;
-});
+// window.addEventListener('mouseup', () => {
+//   isPressedDownS = false;
+// });
 
-containerS.addEventListener('mousemove', (e) => {
-  if (!isPressedDownS) return;
-  e.preventDefault();
-  cardsS.style.left = `${e.offsetX - cursorXSpaceS}px`;
-  boundCardsS();
-});
+// containerS.addEventListener('mousemove', (e) => {
+//   if (!isPressedDownS) return;
+//   e.preventDefault();
+//   cardsS.style.left = `${e.offsetX - cursorXSpaceS}px`;
+//   boundCardsS();
+// });
 
-function boundCardsS() {
-  const container_rect = containerS.getBoundingClientRect();
-  const cards_rect = cardsS.getBoundingClientRect();
+// function boundCardsS() {
+//   const container_rect = containerS.getBoundingClientRect();
+//   const cards_rect = cardsS.getBoundingClientRect();
 
-  if (parseInt(cardsS.style.left) > 0) {
-    cardsS.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cardsS.style.left = `-${cards_rect.width - container_rect.width}px`;
-  }
-}
+//   if (parseInt(cardsS.style.left) > 0) {
+//     cardsS.style.left = 0;
+//   } else if (cards_rect.right < container_rect.right) {
+//     cardsS.style.left = `-${cards_rect.width - container_rect.width}px`;
+//   }
+// }
 
 
-const container = document.querySelector('.slideshow-container');
-const cards = document.querySelector('.cards');
+const container = document.querySelectorAll('.cards');
+const cards = document.querySelectorAll('.c');
 
 /* keep track of user's mouse down and up */
 let isPressedDown = false;
 /* x horizontal space of cursor from inner container */
 let cursorXSpace;
 
-container.addEventListener('mousedown', (e) => {
+container.forEach(c=> {c.addEventListener('mousedown', (e) => {
   console.log('CHOTA ABAJO')
   isPressedDown = true;
-  cursorXSpace = e.offsetX - cards.offsetLeft;
-  container.style.cursor = 'grabbing';
-});
+  c.style.cursor = 'grabbing';
+})})
 
-container.addEventListener('mouseup', () => {
+container.forEach(c =>{ c.addEventListener('mouseup', () => {
   console.log('CHOTA ARRIBA')
-  container.style.cursor = 'grab';
-});
-
-window.addEventListener('mouseup', () => {
+  c.style.cursor = 'grab';
   isPressedDown = false;
-});
+})});
 
-container.addEventListener('mousemove', (e) => {
-  if (!isPressedDown) return;
-  e.preventDefault();
-  cards.style.left = `${e.offsetX - cursorXSpace}px`;
-  boundCards();
-});
+container.forEach(c =>{ c.addEventListener('mouseleave', () => {
+  console.log('CHOTA ARRIBA')
+  c.style.cursor = 'grab';
+  isPressedDown = false;
+})});
 
-function boundCards() {
-  const container_rect = container.getBoundingClientRect();
-  const cards_rect = cards.getBoundingClientRect();
 
-  if (parseInt(cards.style.left) > 0) {
-    cards.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cards.style.left = `-${cards_rect.width - container_rect.width}px`;
-  }
-}
+container.forEach(element=>{
+  element.addEventListener("mousemove", (e)=>{
+     if(isPressedDown){
+      console.log("PUTO")
+      element.parentElement.scrollLeft -= e.movementX;
+     }
+  })
+})
+
+
+// container.forEach(elment => {c.addEventListener('mousemove', (e) => {
+//   if (isPressedDown){
+//     console.log("PUTO")
+//     c.parentElement.scrollLeft -= e.movementX;
+  
+//   }
+//   // boundCards();
+// })})
+
+
+// function boundCards() {
+//   const container_rect = container.getBoundingClientRect();
+//   const cards_rect = cards.getBoundingClientRect();
+
+//   if (parseInt(cards.style.left) > 0) {
+//     cards.style.left = 0;
+//   } else if (cards_rect.right < container_rect.right) {
+//     cards.style.left = `-${cards_rect.width - container_rect.width}px`;
+//   }
+// }
 
 
 
