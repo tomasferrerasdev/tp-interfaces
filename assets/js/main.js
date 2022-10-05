@@ -37,133 +37,41 @@ setInterval(() => {
   }
 }, 4);
 
+const slider = document.querySelector('.slider-inner');
 
-// let slideIndex = 1;
-// showSlides(slideIndex);
-// function plusSlides(n) {
-//     showSlides(slideIndex += n);
-// }
-// function showSlides(n) {
-//     var i;
-//     var slides = document.getElementsByClassName("mySlides");
-//     if (n > slides.length) {slideIndex = 1}
-//     if (n < 1) {slideIndex = slides.length}
-//     for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//     }
-//     slides[slideIndex-1].style.display = "block";
-// }
-
-// let smallSlideIndex = 1;
-
-
-// function plusSmallSlides(n, v) {
-//   showSmallSlides(smallSlideIndex += n, v)
-// }
-
-// function showSmallSlides(n , v) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySmallSlides");
-//   if (n > slides.length) {smallSlideIndex = 1}
-//   if (n < 1) {smallSlideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//   }
-//   if(v == 'dekstop'){
-//     slides[smallSlideIndex-1].style.display = "block";
-//     slides[smallSlideIndex].style.display = "block";
-//     slides[smallSlideIndex+1].style.display = "block";
-//   }else{
-//     slides[smallSlideIndex-1].style.display = "block";
-//   }
-// }
-
-
-const containerS = document.querySelector('.slideshow-smallContainer');
-const cardsS = document.querySelector('.freeGames-Carousel');
-
-/* keep track of user's mouse down and up */
-let isPressedDownS = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpaceS;
-
-containerS.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDownS = true;
-  cursorXSpaceS = e.offsetX - cardsS.offsetLeft;
-  containerS.style.cursor = 'grabbing';
+slider.parentElement.addEventListener('scroll', (e) => {
+  progressBar.style.width = `${getScrollPercentage()}%`;
 });
 
-containerS.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  containerS.style.cursor = 'grab';
+slider.addEventListener('mousedown', (e) => {
+  sliderGrabbed = true;
+  slider.style.cursor = 'grabbing';
 });
 
-window.addEventListener('mouseup', () => {
-  isPressedDownS = false;
+slider.addEventListener('mouseup', (e) => {
+  sliderGrabbed = false;
+  slider.style.cursor = 'grab';
 });
 
-containerS.addEventListener('mousemove', (e) => {
-  if (!isPressedDownS) return;
-  e.preventDefault();
-  cardsS.style.left = `${e.offsetX - cursorXSpaceS}px`;
-  boundCardsS();
+slider.addEventListener('mouseleave', (e) => {
+  sliderGrabbed = false;
 });
 
-function boundCardsS() {
-  const container_rect = containerS.getBoundingClientRect();
-  const cards_rect = cardsS.getBoundingClientRect();
-
-  if (parseInt(cardsS.style.left) > 0) {
-    cardsS.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cardsS.style.left = `-${cards_rect.width - container_rect.width}px`;
+slider.addEventListener('mousemove', (e) => {
+  if (sliderGrabbed) {
+    slider.parentElement.scrollLeft -= e.movementX;
   }
-}
-
-
-const container = document.querySelector('.slideshow-container');
-const cards = document.querySelector('.cards');
-
-/* keep track of user's mouse down and up */
-let isPressedDown = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpace;
-
-container.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDown = true;
-  cursorXSpace = e.offsetX - cards.offsetLeft;
-  container.style.cursor = 'grabbing';
 });
 
-container.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  container.style.cursor = 'grab';
-});
-
-window.addEventListener('mouseup', () => {
-  isPressedDown = false;
-});
-
-container.addEventListener('mousemove', (e) => {
-  if (!isPressedDown) return;
+slider.addEventListener('wheel', (e) => {
   e.preventDefault();
-  cards.style.left = `${e.offsetX - cursorXSpace}px`;
-  boundCards();
+  slider.parentElement.scrollLeft += e.deltaY;
 });
 
-function boundCards() {
-  const container_rect = container.getBoundingClientRect();
-  const cards_rect = cards.getBoundingClientRect();
-
-  if (parseInt(cards.style.left) > 0) {
-    cards.style.left = 0;
-  } else if (cards_rect.right < container_rect.right) {
-    cards.style.left = `-${cards_rect.width - container_rect.width}px`;
-  }
+function getScrollPercentage() {
+  return (
+    (slider.parentElement.scrollLeft /
+      (slider.parentElement.scrollWidth - slider.parentElement.clientWidth)) *
+    100
+  );
 }
-
-
-
-
