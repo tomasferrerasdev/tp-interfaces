@@ -37,149 +37,41 @@ setInterval(() => {
   }
 }, 4);
 
+const slider = document.querySelector('.slider-inner');
 
-// let slideIndex = 1;
-// showSlides(slideIndex);
-// function plusSlides(n) {
-//     showSlides(slideIndex += n);
-// }
-// function showSlides(n) {
-//     var i;
-//     var slides = document.getElementsByClassName("mySlides");
-//     if (n > slides.length) {slideIndex = 1}
-//     if (n < 1) {slideIndex = slides.length}
-//     for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//     }
-//     slides[slideIndex-1].style.display = "block";
-// }
+slider.parentElement.addEventListener('scroll', (e) => {
+  progressBar.style.width = `${getScrollPercentage()}%`;
+});
 
-// let smallSlideIndex = 1;
+slider.addEventListener('mousedown', (e) => {
+  sliderGrabbed = true;
+  slider.style.cursor = 'grabbing';
+});
 
+slider.addEventListener('mouseup', (e) => {
+  sliderGrabbed = false;
+  slider.style.cursor = 'grab';
+});
 
-// function plusSmallSlides(n, v) {
-//   showSmallSlides(smallSlideIndex += n, v)
-// }
+slider.addEventListener('mouseleave', (e) => {
+  sliderGrabbed = false;
+});
 
-// function showSmallSlides(n , v) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySmallSlides");
-//   if (n > slides.length) {smallSlideIndex = 1}
-//   if (n < 1) {smallSlideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//   }
-//   if(v == 'dekstop'){
-//     slides[smallSlideIndex-1].style.display = "block";
-//     slides[smallSlideIndex].style.display = "block";
-//     slides[smallSlideIndex+1].style.display = "block";
-//   }else{
-//     slides[smallSlideIndex-1].style.display = "block";
-//   }
-// }
+slider.addEventListener('mousemove', (e) => {
+  if (sliderGrabbed) {
+    slider.parentElement.scrollLeft -= e.movementX;
+  }
+});
 
+slider.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  slider.parentElement.scrollLeft += e.deltaY;
+});
 
-// const containerS = document.querySelector('.slideshow-smallContainer');
-// const cardsS = document.querySelector('.freeGames-Carousel');
-
-// /* keep track of user's mouse down and up */
-// let isPressedDownS = false;
-// /* x horizontal space of cursor from inner container */
-// let cursorXSpaceS;
-
-// containerS.addEventListener('mousedown', (e) => {
-//   console.log('CHOTA ABAJO')
-//   isPressedDownS = true;
-//   cursorXSpaceS = e.offsetX - cardsS.offsetLeft;
-//   containerS.style.cursor = 'grabbing';
-// });
-
-// containerS.addEventListener('mouseup', () => {
-//   console.log('CHOTA ARRIBA')
-//   containerS.style.cursor = 'grab';
-// });
-
-// window.addEventListener('mouseup', () => {
-//   isPressedDownS = false;
-// });
-
-// containerS.addEventListener('mousemove', (e) => {
-//   if (!isPressedDownS) return;
-//   e.preventDefault();
-//   cardsS.style.left = `${e.offsetX - cursorXSpaceS}px`;
-//   boundCardsS();
-// });
-
-// function boundCardsS() {
-//   const container_rect = containerS.getBoundingClientRect();
-//   const cards_rect = cardsS.getBoundingClientRect();
-
-//   if (parseInt(cardsS.style.left) > 0) {
-//     cardsS.style.left = 0;
-//   } else if (cards_rect.right < container_rect.right) {
-//     cardsS.style.left = `-${cards_rect.width - container_rect.width}px`;
-//   }
-// }
-
-
-const container = document.querySelectorAll('.cards');
-const cards = document.querySelectorAll('.c');
-
-/* keep track of user's mouse down and up */
-let isPressedDown = false;
-/* x horizontal space of cursor from inner container */
-let cursorXSpace;
-
-container.forEach(c=> {c.addEventListener('mousedown', (e) => {
-  console.log('CHOTA ABAJO')
-  isPressedDown = true;
-  c.style.cursor = 'grabbing';
-})})
-
-container.forEach(c =>{ c.addEventListener('mouseup', () => {
-  console.log('CHOTA ARRIBA')
-  c.style.cursor = 'grab';
-  isPressedDown = false;
-})});
-
-container.forEach(c =>{ c.addEventListener('mouseleave', () => {
-  console.log('CHOTA ARRIBA')
-  c.style.cursor = 'grab';
-  isPressedDown = false;
-})});
-
-
-container.forEach(element=>{
-  element.addEventListener("mousemove", (e)=>{
-     if(isPressedDown){
-      console.log("PUTO")
-      element.parentElement.scrollLeft -= e.movementX;
-     }
-  })
-})
-
-
-// container.forEach(elment => {c.addEventListener('mousemove', (e) => {
-//   if (isPressedDown){
-//     console.log("PUTO")
-//     c.parentElement.scrollLeft -= e.movementX;
-  
-//   }
-//   // boundCards();
-// })})
-
-
-// function boundCards() {
-//   const container_rect = container.getBoundingClientRect();
-//   const cards_rect = cards.getBoundingClientRect();
-
-//   if (parseInt(cards.style.left) > 0) {
-//     cards.style.left = 0;
-//   } else if (cards_rect.right < container_rect.right) {
-//     cards.style.left = `-${cards_rect.width - container_rect.width}px`;
-//   }
-// }
-
-
-
-
+function getScrollPercentage() {
+  return (
+    (slider.parentElement.scrollLeft /
+      (slider.parentElement.scrollWidth - slider.parentElement.clientWidth)) *
+    100
+  );
+}
