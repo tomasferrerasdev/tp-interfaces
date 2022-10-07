@@ -387,10 +387,6 @@ body.loading {
   overflow: hidden;
 }
 
-body.loaded {
-  overflow: scroll;
-}
-
 .loader {
   position: absolute;
   top: 0;
@@ -404,14 +400,14 @@ body.loaded {
   align-items: center;
   margin: 0 auto;
   gap: 3rem;
-  z-index: 999999;
+  z-index: 999;
 }
 
 #text {
   height: 250px;
   width: 250px;
   stroke-dasharray: 2000.036865234375;
-  animation: 10s fillSvg linear;
+  animation: 9s fillSvg linear;
 }
 
 @keyframes fillSvg {
@@ -421,29 +417,6 @@ body.loaded {
   100% {
     stroke-dashoffset: 0;
   }
-}
-
-.progress-bar {
-  width: 250px;
-  height: 0.5rem;
-  background-color: var(--accent-A500);
-  position: relative;
-}
-
-.progress-bar::before {
-  content: '';
-  display: flex;
-  align-items: center;
-  position: absolute;
-  width: calc(var(--width, 0) * 1%);
-  height: 100%;
-  min-width: 0.5rem;
-  max-width: 100%;
-  background-color: var(--accent-A300);
-}
-
-.remove {
-  display: none;
 }
 
 .nav-avatar,

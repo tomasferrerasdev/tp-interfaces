@@ -23,48 +23,43 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
-// PROGRESS BAR
+//LOADER
+let loader = document.getElementById('loader');
+let body = document.getElementById('body');
+body.style.overflow = 'hidden';
 
-const progressBar = document.getElementById('progress-bar');
-const loaderContainer = document.getElementById('loader-container');
+const myTimeout = setTimeout(loaderProgress, 5000);
 
-setInterval(() => {
-  const computedStyle = getComputedStyle(progressBar);
-  const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0;
-  progressBar.style.setProperty('--width', width + 0.1);
-  if (width === 100) {
-    loaderContainer.classList.add('remove');
-  }
-}, 4);
+function loaderProgress() {
+  loader.style.display = 'none';
+  body.style.overflowY = 'scroll';
+}
 
 const slider = document.querySelectorAll('.slider-inner');
 
 let sliderGrabbed = false;
 
-
-
-slider.forEach(element => {
+slider.forEach((element) => {
   element.addEventListener('mousedown', (e) => {
     sliderGrabbed = true;
     element.style.cursor = 'grabbing';
   });
-  
 });
 
-slider.forEach(element => {
+slider.forEach((element) => {
   element.addEventListener('mouseup', (e) => {
     sliderGrabbed = false;
     element.style.cursor = 'grab';
   });
 });
 
-slider.forEach(element => {
+slider.forEach((element) => {
   element.addEventListener('mouseleave', (e) => {
     sliderGrabbed = false;
-  }); 
+  });
 });
 
-slider.forEach(element => {
+slider.forEach((element) => {
   element.addEventListener('mousemove', (e) => {
     if (sliderGrabbed) {
       element.parentElement.scrollLeft -= e.movementX;
@@ -72,7 +67,7 @@ slider.forEach(element => {
   });
 });
 
-slider.forEach(element => {
+slider.forEach((element) => {
   element.addEventListener('wheel', (e) => {
     e.preventDefault();
     element.parentElement.scrollLeft += e.deltaY;
