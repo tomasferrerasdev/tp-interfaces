@@ -37,7 +37,7 @@ setInterval(() => {
   }
 }, 4);
 
-const slider = document.querySelectorAll('.slider-inner');
+const slider = document.querySelectorAll('.slider-move');
 
 let sliderGrabbed = false;
 
