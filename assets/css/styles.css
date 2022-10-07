@@ -87,8 +87,6 @@ button {
   cursor: pointer;
 }
 
-
-
 .progress-bar {
   position: absolute;
   bottom: -20px;
@@ -313,17 +311,77 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 2rem;
 }
 
-.home__data-cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+.btn-a {
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--accent-A300);
 }
 
-
+.home__data-btn button {
+  border: none;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.home__data-btn button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent-A300);
+  transition: all 1s;
+}
+.home__data-btn button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent-A300);
+  transition: all 1s;
+}
+.home__data-btn button:hover:before {
+  left: 0;
+}
+.home__data-btn button:hover:after {
+  right: 0;
+}
+.home__data-btn span:before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  right: 0%;
+  width: 1px;
+  height: 100%;
+  background-color: var(--accent-A300);
+  transition: all 1s;
+}
+.home__data-btn button:hover span:before {
+  top: 0;
+}
+.home__data-btn span:after {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: 0%;
+  width: 1px;
+  height: 100%;
+  background-color: var(--accent-A300);
+  transition: all 1s;
+}
+.home__data-btn button:hover span:after {
+  bottom: 0;
+}
 
 body.loading {
   overflow: hidden;
@@ -464,11 +522,6 @@ body.loaded {
   bottom: 0;
 }
 
-
-
-
- 
-
 /* Body */
 
 .slider-wrap {
@@ -568,7 +621,6 @@ body.loaded {
   gap: 2rem;
 }
 
-
 .item-showcase {
   position: relative;
   display: flex;
@@ -601,18 +653,26 @@ body.loaded {
   color: orange;
 }
 
-.dos-showcase h1{
+.dos-showcase h1 {
   font-size: var(--h4-size);
 }
 
-.dos-showcase p{
+.dos-showcase p {
   color: var(--accent-A75);
   font-weight: var(--font-regular);
 }
 
-.dos-showcase button{
-  background-image: -webkit-linear-gradient(30deg, var(--neutrals-N300) 50%, transparent 50%);
-  background-image: linear-gradient(30deg, var(--neutrals-N300) 50%, transparent 50%);
+.dos-showcase button {
+  background-image: -webkit-linear-gradient(
+    30deg,
+    var(--neutrals-N300) 50%,
+    transparent 50%
+  );
+  background-image: linear-gradient(
+    30deg,
+    var(--neutrals-N300) 50%,
+    transparent 50%
+  );
   background-size: 500px;
   background-repeat: no-repeat;
   background-position: 0%;
@@ -620,12 +680,11 @@ body.loaded {
   transition: 300ms ease-in-out;
 }
 
-.dos-showcase button:hover{
+.dos-showcase button:hover {
   background-position: 100%;
   background-color: var(--accent-A300);
   color: var(--neutrals-N300);
 }
-
 
 .progress-bar {
   position: absolute;
@@ -668,16 +727,16 @@ button {
   padding: 0;
   overflow: visible;
   background: transparent;
+  appearance: none;
   -webkit-appearance: none;
   background: none;
-  background-color: black;
-  color: orange;
+  background-color: transparent;
+  color: var(--accent-A300);
   font-weight: bold;
   outline: none;
   padding: 0.5rem 1rem;
-  border: 1px solid orange;
+  border: 1px solid var(--accent-A300);
   width: fit-content;
-  border-radius: 8px;
 }
 
 .dos {
@@ -692,7 +751,6 @@ button {
     margin: 0 auto;
     height: 650px;
     cursor: grab;
-    
   }
 
   .slider-showcase {
@@ -744,7 +802,7 @@ button {
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    color: orange;
+    color: var(--accent-A300);
   }
 
   .progress-bar {
@@ -753,7 +811,7 @@ button {
     left: 0;
     height: 5px;
     width: 100%;
-    border: 1px solid orange;
+    border: 1px solid var(--accent-A300);
     border-radius: 10px;
   }
 
