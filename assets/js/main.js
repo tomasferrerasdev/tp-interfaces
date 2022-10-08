@@ -23,17 +23,7 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
-//LOADER
-let loader = document.getElementById('loader');
-let body = document.getElementById('body');
-body.style.overflow = 'hidden';
 
-const myTimeout = setTimeout(loaderProgress, 5000);
-
-function loaderProgress() {
-  loader.style.display = 'none';
-  body.style.overflowY = 'scroll';
-}
 
 const slider = document.querySelectorAll('.slider-move');
 
