@@ -1001,7 +1001,6 @@ button {
   width: 100%;
   overflow: scroll;
   overflow: hidden;
-
 }
 
 .slider-inner-game {
@@ -1312,21 +1311,53 @@ textarea {
   transition: all 0.3s ease;
 }
 
+.tittle-characters{
+  display: flex;
+  justify-content: center;  
+}
+
+.slider-wrap-characters {
+  position: relative;
+  width: 80%;
+  margin: 2rem auto;
+  height: 300px;
+  cursor: grab;
+}
+
+.slider-characters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  overflow: hidden;
+}
+
+.slider-inner-characters {
+  position: absolute;
+  display: flex;
+  width: 1250px;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
 .characters__container {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 10rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .characters__card {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .characters__card > img {
