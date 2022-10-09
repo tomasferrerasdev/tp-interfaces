@@ -23,8 +23,6 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
-
-
 const slider = document.querySelectorAll('.slider-move');
 
 let sliderGrabbed = false;
@@ -63,6 +61,15 @@ slider.forEach((element) => {
     element.parentElement.scrollLeft += e.deltaY;
   });
 });
+
+const body = document.getElementById('body');
+const loader = document.getElementById('loader');
+
+body.style.overflow = 'hidden';
+setTimeout(() => {
+  body.style.overflow = 'visible';
+  loader.style.display = 'none';
+}, 5000);
 
 // function getScrollPercentage() {
 //   return (
