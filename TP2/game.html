@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RockinGames</title>
+  </head>
+
+  <body id="body">
+    <div class="container" id="loader-container"></div>
+    <div class="hero" id="hero">
+      <div class="game__main">
+        <header class="header" id="header">
+          <nav class="nav container">
+            <div class="nav-left">
+              <a href="./index.html" class="nav__logo">
+                <img
+                  src="./assets/img/logo.svg"
+                  alt="RockinGames logo"
+                  class="nav__logo-img"
+                />
+              </a>
+              <div class="nav-item-container">
+                <a href="#" class="fw-regular p-2">Free</a>
+                <a href="#" class="fw-regular p-2">PlayStation 2</a>
+                <a href="#" class="fw-regular p-2">RPG</a>
+                <a href="#" class="fw-regular p-2">Premium</a>
+              </div>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+              <div class="nav__avatar">
+                <img src="./assets/img/avatar.png" alt="avatar image" />
+                <div class="nav__menu-data">
+                  <div class="nav__menu-text">
+                    <p class="p-1 fw-bold">Eddie C. Blaylock</p>
+                    <p class="p-1 fw-regular">eddieblaylock@gmail.com</p>
+                  </div>
+                  <button class="fw-bold">Log out</button>
+                </div>
+              </div>
+
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">Free</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">PlayStation 2</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">RPG</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="fw-bold fs-h3 nav__link">Premium</a>
+                </li>
+              </ul>
+
+              <div class="nav__footer">
+                <a href="#" class="fw-bold nav__link">Youtube</a>
+                <a href="#" class="fw-bold nav__link">Instagram</a>
+                <a href="#" class="fw-bold nav__link">Twitter</a>
+                <a href="#" class="fw-bold nav__link">Discord</a>
+              </div>
+
+              <div class="nav__close" id="nav-close">
+                <i class="bx bx-x"></i>
+              </div>
+            </div>
+
+            <div class="nav-right">
+              <div class="nav-avatar">
+                <img src="./assets/img/avatar.png" alt="avatar image" />
+                <p class="p-1 fw-regular">Eddie C. Blaylock</p>
+              </div>
+              <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-menu"></i>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="showcase" id="showcase">
+          <div class="showcase__container container">
+            <div class="breadcrumb__list">
+              <a href="./index.html">Home</a>
+              <img src="./assets/img/arrow.svg" alt="arrow svg" />
+              <a href="#">Games</a>
+              <img src="./assets/img/arrow.svg" alt="arrow svg" />
+              <a href="#">Connect4</a>
+            </div>
+
+            <div class="game__container">
+              <img
+                class="game__img"
+                src="./assets/img/game-showcase.png"
+                alt="game cover image"
+              />
+
+              <div class="vl">
+                <div class="vl__content"></div>
+              </div>
+
+              <div class="game__data">
+                <div class="game__data-content">
+                  <h1>How to play</h1>
+                  <p>
+                    First, decide who goes first and what color each player will
+                    have. Players must alternate turns, and only one disc can be
+                    dropped in each turn. On your turn, drop one of your colored
+                    discs from the top into any of the seven slots The game ends
+                    when there is a 4-in-a-row or a stalemate. The starter of
+                    the previous game goes second on the next game.
+                  </p>
+                </div>
+                <div class="game__data-content">
+                  <h1>Objective</h1>
+                  <p>
+                    To be the first player to connect 4 of the same colored
+                    discs in a row (either vertically, horizontally, or
+                    diagonally)
+                  </p>
+                </div>
+
+                <div class="game__data-content">
+                  <h1>Share with your friends</h1>
+                  <div class="social">
+                    <img
+                      src="./assets/img/social/discord-line.svg"
+                      alt="discord logo"
+                    />
+                    <img
+                      src="./assets/img/social/facebook-box-line.svg"
+                      alt="facebook logo"
+                    />
+                    <img
+                      src="./assets/img/social/twitch-line.svg"
+                      alt="twitch logo"
+                    />
+                    <img
+                      src="./assets/img/social/twitter-line.svg"
+                      alt="twitter logo"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr container"></div>
+
+        <div class="slider-wrap-game">
+          <div class="slider-game">
+            <div class="slider-inner-game slider-move">
+              <div class="info-container">
+                <img src="./assets/img/Primm_Slim 1.png" alt="primm image" />
+              </div>
+              <div class="info-container">
+                <img src="./assets/img/Primm_Slim 2.png" alt="primm image" />
+              </div>
+              <div class="info-container">
+                <img src="./assets/img/Primm_Slim 3.png" alt="primm image" />
+              </div>
+              <div class="info-container">
+                <img src="./assets/img/Primm_Slim 4.png" alt="primm image" />
+              </div>
+              <div class="info-container">
+                <img src="./assets/img/Primm_Slim 5.png" alt="primm image" />
+              </div>
+              <div class="info-container">
+                <a
+                  href="http://tudai2-2.alumnos.exa.unicen.edu.ar/interfaces"
+                  target="_blank"
+                  class="p-1"
+                  >Click here to check more info...</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game__story container">
+          <h1>Story:</h1>
+          <p class="p-2 fw-regular">
+            After surviving a bullet to the head, Courier Six traverses the
+            post-apocalyptic Mojave desert in search of the men who wronged him,
+            while making an impact on thousands in the process. As you were
+            delivering a package to the New Vegas strip, a strange man stops you
+            and captures you, only for you to be shot in the head. He leaves you
+            for dead and takes your package. You awaken in a clinic in the town
+            of Goodsprings, where a doctor heals you and helps you get back on
+            your feet. You have to defeat this strange man and have him pay for
+            his crimes and find out what's in the package.. or betray the
+            residents of Goodsprings and other small towns for their money and
+            property.
+          </p>
+          <p class="p-2 fw-regular">
+            After surviving a bullet to the head, Courier Six traverses the
+            post-apocalyptic Mojave desert in search of the men who wronged him,
+            while making an impact on thousands in the process. As you were
+            delivering a package to the New Vegas strip, a strange man stops you
+            and captures you, only for you to be shot in the head. He leaves you
+            for dead and takes your package. You awaken in a clinic in the town
+            of Goodsprings, where a doctor heals you and helps you get back on
+            your feet. You have to defeat this strange man and have him pay for
+            his crimes and find out what's in the package.. or betray the
+            residents of Goodsprings and other small towns for their money and
+            property.
+          </p>
+        </div>
+
+        <div class="game__images container">
+          <img src="./assets/img/fnv-fallout.gif" alt="gif" />
+          <img src="./assets/img/giphy.gif" alt="gif" />
+        </div>
+
+        <div class="comment__section">
+          <div class="comment__section-container container">
+            <div class="form">
+              <p>Leave your comment here...</p>
+              <textarea class="comment__box"> </textarea>
+              <button class="button p-2">Share</button>
+            </div>
+            <div class="comment">
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                    ironically this "verified" game is about the only one that
+                    doesnt work on my deck. is "verified" game is about the only
+                    one that doesnt work on my deck.is "verified" game is about
+                    the only one that doesnt work on my deck.is "verified" game
+                    is about the only one that doesnt work on my deck.is
+                    "verified" game is about the only one that doesnt work on my
+                    deck.is "verified" game is about the only one that doesnt
+                    work on my deck.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+              <div class="comment__card">
+                <div class="comment__card-avatar">
+                  <img src="./assets/img/avatar.png" alt="avatar image" />
+                  <div>
+                    <p class="p-2 fw-bold">John Doe</p>
+                    <p>Aug 13</p>
+                  </div>
+                </div>
+
+                <div class="comment__card-comment">
+                  <p class="fw-regular">
+                    The game starts, shows half of a black screen and some
+                    warning that just says the app will be terminated.
+                    ironically this "verified" game is about the only one that
+                    doesnt work on my deck.is "verified" game is about the only
+                    one that doesnt work on my deck.is "verified" game is about
+                    the only one that doesnt work on my deck.is "verified" game
+                    is about the only one that doesnt work on my deck.is
+                    "verified" game is about the only one that doesnt work on my
+                    deck.is "verified" game is about the only one that doesnt
+                    work on my deck.
+                  </p>
+                </div>
+
+                <div class="comment__card-upvotes">
+                  <div class="up">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                    <span>243</span>
+                  </div>
+                  <div class="down">
+                    <img src="./assets/img/arrow-up.svg" alt="arrow image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__body">
+            <div class="footer__body-list">
+              <ul aria-label="FIRST">
+                <p class="p-2 fw-bold">Our Products</p>
+                <li>Our strategy: Powering Progress</li>
+                <li>Business customers</li>
+                <li>Investors</li>
+                <li>Careers</li>
+              </ul>
+            </div>
+
+            <div class="footer__vl"></div>
+
+            <div class="footer__body-list">
+              <ul aria-label="SECOND">
+                <p class="p-2 fw-bold">More about</p>
+                <li>Who we are</li>
+                <li>What we do</li>
+                <li>Our Values</li>
+                <li>Leadership</li>
+                <li>Our major projects</li>
+                <li>The brand</li>
+                <li>Annual publications</li>
+              </ul>
+            </div>
+            <div class="footer__body-list">
+              <ul aria-label="THIRD">
+                <p class="p-2 fw-bold">Can we help?</p>
+                <li>Job search</li>
+                <li>RockinGames global helpline</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr container"></div>
+
+        <div class="footer__bottom">
+          <div class="footer__bottom-container container">
+            <ul>
+              <li>Accessibility</li>
+              <li>Terms and conditions</li>
+              <li>Privacy notices</li>
+              <li>Cookie policy</li>
+              <li>Fraud and scam alert</li>
+              <li>Contact us</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
