@@ -290,6 +290,15 @@ button {
   color: var(--neutrals-N300);
 }
 
+/* CANVAS */
+.canvas-container {
+  height: calc(100vh - 150px);
+}
+
+.canvas {
+  background-color: blue;
+}
+
 /*HERO*/
 .hero {
   height: 100vh;

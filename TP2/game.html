@@ -23,7 +23,7 @@
     <title>RockinGames</title>
   </head>
 
-  <body >
+  <body>
     <div class="container" id="loader-container"></div>
     <div class="hero" id="hero">
       <div class="game__main">
@@ -98,6 +98,16 @@
 
         <div class="showcase" id="showcase">
           <div class="showcase__container container">
+            <div class="canvas-container">
+              <canvas
+                class="canvas"
+                id="canvas"
+                width="1200"
+                height="550"
+              ></canvas>
+            </div>
+          </div>
+          <!--
             <div class="breadcrumb__list">
               <a href="./index.html">Home</a>
               <img src="./assets/img/arrow.svg" alt="arrow svg" />
@@ -161,7 +171,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="hr container"></div>
@@ -392,5 +402,9 @@
     </div>
 
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/connect4/chip.js"></script>
+    <script src="./assets/js/connect4/player.js"></script>
+    <script src="./assets/js/connect4/game.js"></script>
+    <script src="./assets/js/connect4/connect4.js"></script>
   </body>
 </html>
