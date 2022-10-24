@@ -6,6 +6,7 @@ class Game {
   }
 
   play() {
+    let p2 = new Player('HOMO', 2, 'QUIROGA');
     let p1 = new Player('PUTO', 1, 'QUIROGA');
   }
 }
