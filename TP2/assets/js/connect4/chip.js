@@ -4,7 +4,7 @@ class Chip {
   constructor(x, y, color) {
     this.x = x;
     this.y = y;
-    this.radius = 15;
+    this.radius = 20;
     this.color = color;
     this.isSelected = false;
 
@@ -15,10 +15,10 @@ class Chip {
     this.context.beginPath();
     this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     this.context.fillStyle = this.color;
-    this.context.strokeStyle = '#7a470f';
+    this.context.strokeStyle = '#01FE78';
 
     if (this.isSelected) {
-      this.context.lineWidth = 5;
+      this.context.lineWidth = 2.5;
     } else {
       this.context.lineWidth = 1;
     }

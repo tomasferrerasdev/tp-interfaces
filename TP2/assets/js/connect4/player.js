@@ -20,15 +20,15 @@ class Player {
   createChips() {
     for (let i = 0; i < 21; i++) {
       if (this.id === 1) {
-        let x = Math.round(Math.random() * (canvas.width / 2 - 250));
-        let y = Math.round(Math.random() * (canvas.height / 2 - 50));
-        let color = 'orange';
+        let x = Math.round(canvas.width / 2 - 50);
+        let y = Math.round(canvas.height / 2 - 50);
+        let color = '#000000';
         let chip = new Chip(x, y, color);
         this.chips.push(chip);
       } else {
-        let x = Math.round(Math.random() * (canvas.width / 2 - 200));
-        let y = Math.round(Math.random() * (canvas.height / 2 - 200));
-        let color = 'red';
+        let x = Math.round(Math.random() * (canvas.width / 2 - 400));
+        let y = Math.round(Math.random() * (canvas.height / 2 - 50));
+        let color = 'green';
         let chip = new Chip(x, y, color);
         this.chips.push(chip);
       }
@@ -62,6 +62,7 @@ class Player {
     canvas.addEventListener('mousedown', (e) => {
       let clickX = e.pageX - canvas.offsetLeft;
       let clickY = e.pageY - canvas.offsetTop;
+
       let clickedChip = this.findClicked(clickX, clickY);
 
       if (clickedChip != null) {
