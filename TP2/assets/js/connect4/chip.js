@@ -1,14 +1,28 @@
 // CONTROLA LAS FICHAS
 
 class Chip {
-  constructor(x, y, color) {
+  constructor(x, y, color, owner, turn) {
     this.x = x;
     this.y = y;
     this.radius = 20;
     this.color = color;
     this.isSelected = false;
+    this.turn = turn;
+    this.owner = owner;
 
     this.context = ctx;
+  }
+
+  getOwner() {
+    return this.owner;
+  }
+
+  getTurn() {
+    return this.turn;
+  }
+
+  setTurn(boolean) {
+    this.turn = boolean;
   }
 
   draw() {
