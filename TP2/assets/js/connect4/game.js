@@ -52,6 +52,7 @@ class Game {
     setTimeout(() => {
       this.players[0].setIsPlaying(!this.players[0].getIsPlaying());
       this.players[1].setIsPlaying(!this.players[1].getIsPlaying());
+      console.log("chang")
       this.turn();
     }, 300000);
   }
