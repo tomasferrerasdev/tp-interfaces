@@ -21,8 +21,24 @@ class Chip {
     return this.turn;
   }
 
+  getIsSelected(){
+    return this.isSelected;
+  }
+
+  setIsSelected(boolean){
+    this.isSelected = boolean;
+  }
+
   setTurn(boolean) {
     this.turn = boolean;
+  }
+  
+  setX(x){
+    this.x = x
+  }
+
+  setY(y){
+    this.y = y;
   }
 
   draw() {

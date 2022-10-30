@@ -16,6 +16,10 @@ class Player {
     return this.isPlaying;
   }
 
+  getChips(){
+    return this.chips;
+  }
+
   setIsPlaying(boolean) {
     this.isPlaying = boolean;
     for (let i = 0; i < this.chips.length; i++) {
