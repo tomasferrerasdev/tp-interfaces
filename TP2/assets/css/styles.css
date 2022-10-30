@@ -294,6 +294,7 @@ button {
 .canvas-container {
   margin: 0 auto;
 }
+
 .canvas {
   background-image: url('../img/canvas-bg.svg');
   border: 1px solid #01fe78;
