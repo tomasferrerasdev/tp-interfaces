@@ -7,7 +7,7 @@ class Chip {
     this.radius = 20;
     this.color = color;
     this.isSelected = false;
-
+    //si esta en la matriz
     this.context = ctx;
   }
 

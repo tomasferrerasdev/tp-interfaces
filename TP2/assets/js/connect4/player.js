@@ -10,6 +10,17 @@ class Player {
     this.init();
   }
 
+  getName(){
+    return this.name;
+  }
+
+  getChips(){
+    return this.chips;
+  }
+
+  getId(){
+    return this.id;
+  }
   init() {
     this.createChips();
     this.onMouseDown();
@@ -17,11 +28,16 @@ class Player {
     this.onMouseMove();
   }
 
+  // addChip(x, y, color){
+  //   let chip = new Chip(x, y, color);
+  //   this.chips.push(chip);
+  // }
+
   createChips() {
     for (let i = 0; i < 21; i++) {
       if (this.id === 1) {
-        let x = Math.round(canvas.width / 2 - 50);
-        let y = Math.round(canvas.height / 2 - 50);
+        let x = Math.round(Math.random() * canvas.width / 2 - 50);
+        let y = Math.round(Math.random() * canvas.height / 2 - 50);
         let color = '#000000';
         let chip = new Chip(x, y, color);
         this.chips.push(chip);
@@ -90,7 +106,7 @@ class Player {
       if (this.previousSelectedChip != null) {
         let x = e.pageX - canvas.offsetLeft;
         let y = e.pageY - canvas.offsetTop;
-
+        
         this.previousSelectedChip.x = x;
         this.previousSelectedChip.y = y;
 
