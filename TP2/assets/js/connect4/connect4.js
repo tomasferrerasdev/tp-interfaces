@@ -9,8 +9,9 @@ let arrow = document.getElementById('arrow');
 let game = new Game();
 let board = [];
 let squarePos = [];
-let boardPositions = [] ;
 let players = game.getPlayers();
+let boardPositions = game.getBoardPositions()
+
 
 init();
 game.play();
@@ -27,22 +28,19 @@ canvas.addEventListener('mousemove', (e) => {
 
 
 function init() {
+    chargueBoard();
     createChips();
     drawBoard();
-    chargeBoard();
 }
 
-function chargeBoard(){
+function chargueBoard(){
     for (let i = 0; i < 6; i++) {
         let row = []
         for (let j = 0; j < 7; j++) {
             row.push(null)
-            
-        }   
-        boardPositions.push(row);     
+        }
+        boardPositions.push(row);    
     }
-    let aux = boardPositions[1];
-    aux[5] = "pija";
 }
 
 function createChips() {
@@ -82,18 +80,18 @@ function createChips() {
 }
 
 function drawBoard(){
-    board = [];
     squarePos = [];
     let pos = canvas.width/2 - 420/2 ;
     let posy= canvas.height/2 - 360/2;
-    for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 7; j++) {
-            let boardPos = {
-                x: pos + j*61,
-                y: posy + i*61
+    for (let i = 0; i < boardPositions.length; i++) {
+        let row = boardPositions[i]
+        for (let j = 0; j < row.length; j++) {
+            if(row[j] != null){
+                row[j].setX((pos + j*61)+ (60/2) )
+                row[j].setY((posy + i*61)+ (60/2))
             }
-            board.push(boardPos)
             ctx.drawImage(img,pos + j*61,posy + i*61, 60 ,60)
+            
             if(i == 0){
                 let throwPos = {
                     x: pos + j*61,
@@ -106,13 +104,15 @@ function drawBoard(){
             }
         }
     }
-    
+  
 }
+    
+    
+
 
 function drawChips() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-   drawBoard();
+    drawBoard();
     for (let j = 0; j < players.length; j++) {
         let chips = players[j].getChips();
         for (let i = 0; i < chips.length; i++) {
@@ -134,56 +134,63 @@ function mouseUp(e) {
     if(game.getIsDraggin()){
         let x = e.pageX - canvas.offsetLeft;
         let y = e.pageY - canvas.offsetTop;
-        let pos = isDropped(x,y)
-        if(pos){
-
-            if(checkPos(pos) != null){
-                console.log(checkPos(pos))
-            }
+        let columnPos = isDropped(x,y)
+        if(columnPos){
+            let rowPos = checkPos(columnPos)
+            addChip(rowPos, columnPos)
+            drawChips();
+            game.setTurn();
+            game.checkWinner(columnPos, rowPos)
+            
         }
     }
-    game.setIsDragging(false);
+    game.setIsDragging(false)
+    
+}
+
+function addChip(rowPos, columnPos){
+    let row = boardPositions[rowPos]
+    row[columnPos] = game.getPreviusSelectedChip();
+    console.log(boardPositions)
+
 }
 
 function checkPos(pos){
-    
+    let i;
     for (let index = 0; index < boardPositions.length; index++) {
        let aux = boardPositions[index]
         for (let j = 0; j < aux.length; j++) {
             if(j == pos && aux[j] != null){
-                return aux[j]
+                return index-1
             }
             
         }
+        i = index
     }
-    return null;
+    return i;
 }
 
 function mouseDown(e) {
     let clickX = e.pageX - canvas.offsetLeft;
     let clickY = e.pageY - canvas.offsetTop;
     let previousSelectedChip = game.getPreviusSelectedChip();
-
-
     let clickedChip = findClicked(clickX, clickY);
-
-
     if (clickedChip != null) {
+        if (clickedChip.getTurn()) {
         if (previousSelectedChip != null) {
-
             previousSelectedChip.setIsSelected(false)
         }
         game.setPreviusSelectedChip(clickedChip)
-
         for (let p = 0; p < players.length; p++) {
             if (players[p].getIsPlaying() == true) {
                 if (clickedChip.getOwner() === players[p].getId()) {
-                    if (clickedChip.getTurn()) {
+                    
                         clickedChip.setIsSelected(true);
                         game.setIsDragging(true);
-                    }
+                    
                 }
             }
+        }
         }
         return;
     }
