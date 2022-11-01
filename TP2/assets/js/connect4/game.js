@@ -70,31 +70,72 @@ class Game {
     let row = this.boardPositions[rowPos]
     let i = 0;
       if(this.checkHorizontal(row,columnPos)){
-        console.log("winner")
+        console.log("winner horizontal")
+      }else if(this.checkVertical(rowPos,columnPos)){
+        console.log("winner vertical")
       }
       
       
     
   }
 
-  checkHorizontal(row, pos){
-    let hori = 1;
-      while(row[pos-1] != null){
-        if(row[pos-1] != null){
-          hori++;
-          pos--
-        }
-      }
-      while(row[pos+1] != null){
-        if(row[pos+1] != null){
-          hori++;
-          pos++
-        }
-        
-      }
-      return hori >= 4;
+  checkVertical(rowPos, columnPos){
+    let nulls = 0;
+    let vert = 1;
+    let aux;
+    
+    if(rowPos == this.boardPositions.length-1){
+      nulls++;
+      aux = rowPos-1
+    }else{
+      aux = rowPos+1
     }
-  
 
- 
+    while(nulls < 2){
+      
+
+      if(aux == this.boardPositions.length-1){
+        nulls++
+        if(rowPos == 0){
+          return vert >= 4
+        }
+        aux = rowPos-1
+      }
+      let circle = this.boardPositions[aux][columnPos]
+      
+      if(circle == null){
+        nulls++
+      }else{
+        vert++;
+      }
+
+      if(nulls == 0){
+        aux++
+      }else{
+        aux--
+      }
+    }
+
+    return vert >= 4
+  }
+
+  checkHorizontal(row, pos){
+    let nulls = 0;
+    let aux = pos+1;
+    let hori = 1;
+    while(nulls <= 2){
+      if(row[aux] == null){
+        nulls++;
+        aux = pos-1
+      }else{
+        hori++;
+      }
+      if(nulls == 0){
+        aux++
+      }else{
+        aux--;
+      }
+    }
+    return hori >= 4
+}
 }

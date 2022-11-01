@@ -31,7 +31,6 @@ class Chip {
 
   setTurn(boolean) {
     this.turn = boolean
-    console.log(this.turn)
   }
   
   setX(x){
