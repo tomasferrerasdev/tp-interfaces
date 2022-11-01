@@ -151,7 +151,6 @@ function mouseUp(e) {
 function addChip(rowPos, columnPos){
     let row = boardPositions[rowPos]
     row[columnPos] = game.getPreviusSelectedChip();
-    console.log(boardPositions)
 
 }
 

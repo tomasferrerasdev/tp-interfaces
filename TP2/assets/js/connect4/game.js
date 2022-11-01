@@ -56,7 +56,6 @@ class Game {
   turn() {
     setTimeout(() => {
       this.setTurn()
-      console.log("change")
       this.turn();
     }, 3000000000000);
   }
@@ -73,10 +72,43 @@ class Game {
         console.log("winner horizontal")
       }else if(this.checkVertical(rowPos,columnPos)){
         console.log("winner vertical")
+      } else if(this.checkDiagonal(rowPos,columnPos)) {
+        console.log("winner diagonal")
       }
-      
-      
+  }
+
+  checkDiagonal(rowPos, colPos){
+    let col = colPos;
+    let row = rowPos;
+
+
+
+    //check arriba-der
+    let auxCol = colPos + 1;
+    let auxRow = rowPos - 1;
+    //check abajo-izq
+    let auxColAbajoIzq = colPos - 1;
+    let auxRowAbajoIzq = rowPos + 1;
+
+
+    //check arriba-izq
+    let auxColArriba = colPos - 1;
+    let auxRowArriba= rowPos - 1;
+
+    //check abajo-der
+    let auxColAbajo = colPos + 1;
+    let auxRowAbajo= rowPos + 1;
+
+
+    let chipQuantity = 0
+
+    console.log(this.boardPositions[row])
     
+    /*
+    while(this.boardPositions[auxRow][auxCol] === null){
+      console.log("Null")
+
+    }*/
   }
 
   checkVertical(rowPos, columnPos){
@@ -92,9 +124,7 @@ class Game {
     }
 
     while(nulls < 2){
-      
-
-      if(aux == this.boardPositions.length-1){
+      if(aux == this.boardPositions.length){
         nulls++
         if(rowPos == 0){
           return vert >= 4
