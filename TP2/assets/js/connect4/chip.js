@@ -2,8 +2,10 @@
 
 class Chip {
   constructor(x, y, color, owner, turn) {
+    this.originalX = x;
+    this.originalY = y;
     this.x = x;
-    this.y = y;
+    this.y = y
     this.radius = 20;
     this.color = color;
     this.isSelected = false;
@@ -39,6 +41,11 @@ class Chip {
 
   setY(y){
     this.y = y;
+  }
+
+  resetPosition(){
+    this.setX(this.originalX);
+    this.setY(this.originalY);
   }
 
   draw() {

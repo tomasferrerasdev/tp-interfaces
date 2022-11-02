@@ -99,11 +99,14 @@ function drawBoard(){
                     w : 60,
                     h : 60
                 }
+                
                 squarePos.push(throwPos)
+
                 ctx.drawImage(arrow,pos + j*61,posy - 61, 60 ,60)
             }
         }
     }
+    
   
 }
     
@@ -123,11 +126,11 @@ function drawChips() {
 
 function isDropped(x,y){
     for (let i = 0; i < squarePos.length; i++) {
-        if(!(x < squarePos[i].x || x > squarePos[i].x + squarePos[i].w || y < squarePos[i].h || y > squarePos[i].h + squarePos[i].h)){
+        if(!(x < squarePos[i].x || x > squarePos[i].x + squarePos[i].w || y < squarePos[i].h || y > squarePos[i].y + squarePos[i].h)){
             return i
         }
     }
-    return false;
+    return -1;
 }
 
 function mouseUp(e) {
@@ -135,15 +138,20 @@ function mouseUp(e) {
         let x = e.pageX - canvas.offsetLeft;
         let y = e.pageY - canvas.offsetTop;
         let columnPos = isDropped(x,y)
-        if(columnPos){
+        if(columnPos >= 0){
             let rowPos = checkPos(columnPos)
             addChip(rowPos, columnPos)
             drawChips();
             game.setTurn();
             game.checkWinner(columnPos, rowPos)
             
+        }else{
+            game.getPreviusSelectedChip().resetPosition();
+            drawChips();
         }
     }
+
+
     game.setIsDragging(false)
     
 }
@@ -151,7 +159,7 @@ function mouseUp(e) {
 function addChip(rowPos, columnPos){
     let row = boardPositions[rowPos]
     row[columnPos] = game.getPreviusSelectedChip();
-
+    console.log(row)
 }
 
 function checkPos(pos){

@@ -11,31 +11,31 @@ class Game {
     this.init();
   }
 
-  getBoardPositions(){
+  getBoardPositions() {
     return this.boardPositions;
   }
 
-  getPlayers(){
+  getPlayers() {
     return this.players;
   }
 
-  getReady(){
+  getReady() {
     return this.ready;
   }
 
-  getIsDraggin(){
+  getIsDraggin() {
     return this.isDragging;
   }
 
-  getPreviusSelectedChip(){
+  getPreviusSelectedChip() {
     return this.previousSelectedChip;
   }
-  
-  setIsDragging(boolean){
+
+  setIsDragging(boolean) {
     this.isDragging = boolean;
   }
 
-  setPreviusSelectedChip(Chip){
+  setPreviusSelectedChip(Chip) {
     this.previousSelectedChip = Chip;
   }
 
@@ -56,92 +56,115 @@ class Game {
   turn() {
     setTimeout(() => {
       this.setTurn()
+      console.log("change")
       this.turn();
     }, 3000000000000);
   }
 
-  setTurn(){
+  setTurn() {
     this.players[0].setIsPlaying(!this.players[0].getIsPlaying());
     this.players[1].setIsPlaying(!this.players[1].getIsPlaying());
   }
 
-  checkWinner(columnPos, rowPos){
+  checkWinner(columnPos, rowPos) {
     let row = this.boardPositions[rowPos]
-    let i = 0;
-      if(this.checkHorizontal(row,columnPos)){
-        console.log("winner horizontal")
-      }else if(this.checkVertical(rowPos,columnPos)){
-        console.log("winner vertical")
-      } else if(this.checkDiagonal(rowPos,columnPos)) {
-        console.log("winner diagonal")
-      }
+    let owner = this.boardPositions[rowPos][columnPos].getOwner();
+    if (this.checkHorizontal(row, columnPos, owner)) {
+      alert("GANASTE CAPO (horizontal)")
+    }
+    if (this.checkVertical(rowPos, columnPos, owner)) {
+      alert("GANASTE CAPO (vertical)")
+    }
+    if (this.checkDiagonal1(rowPos, columnPos, owner) || this.checkDiagonal2(rowPos, columnPos, owner)) {
+      alert("GANASTE CAPO (diagonal)")
+    }
+
   }
 
-  checkDiagonal(rowPos, colPos){
-    let col = colPos;
+  checkDiagonal1(rowPos, columnPos, owner) {
     let row = rowPos;
+    let col = columnPos;
+    let diag = 1;
+    while (col != this.boardPositions[row].length - 1 && row != 0) {
+      row--;
+      col++;
+      if (this.boardPositions[row][col] != null && this.boardPositions[row][col].getOwner() == owner ) {
+        diag++;
+      }
+    }
 
+    row = rowPos;
+    col = columnPos;
+    while (row != this.boardPositions.length - 1 && col != 0) {
+      row++
+      col--
+      if (this.boardPositions[row][col] != null && this.boardPositions[row][col].getOwner() == owner) {
+        diag++;
+      }
+    }
 
-
-    //check arriba-der
-    let auxCol = colPos + 1;
-    let auxRow = rowPos - 1;
-    //check abajo-izq
-    let auxColAbajoIzq = colPos - 1;
-    let auxRowAbajoIzq = rowPos + 1;
-
-
-    //check arriba-izq
-    let auxColArriba = colPos - 1;
-    let auxRowArriba= rowPos - 1;
-
-    //check abajo-der
-    let auxColAbajo = colPos + 1;
-    let auxRowAbajo= rowPos + 1;
-
-
-    let chipQuantity = 0
-
-    console.log(this.boardPositions[row])
-    
-    /*
-    while(this.boardPositions[auxRow][auxCol] === null){
-      console.log("Null")
-
-    }*/
+    return diag >= 4
   }
 
-  checkVertical(rowPos, columnPos){
+  checkDiagonal2(rowPos, columnPos, owner) {
+    let row = rowPos;
+    let col = columnPos;
+    let diag = 1;
+    while (row != 0 && col != 1) {
+      row--;
+      col--;
+      if (this.boardPositions[row][col] != null && this.boardPositions[row][col].getOwner() == owner) {
+        diag++;
+      }
+    }
+
+    row = rowPos;
+    col = columnPos;
+
+    while (row != this.boardPositions.length - 1 && col != this.boardPositions[row].length - 1) {
+      row++
+      col++
+      if (this.boardPositions[row][col] != null && this.boardPositions[row][col].getOwner() == owner) {
+        diag++;
+      }
+    }
+
+    return diag >= 4;
+  }
+
+
+  checkVertical(rowPos, columnPos, owner) {
     let nulls = 0;
     let vert = 1;
     let aux;
-    
-    if(rowPos == this.boardPositions.length-1){
+
+    if (rowPos == this.boardPositions.length - 1) {
       nulls++;
-      aux = rowPos-1
-    }else{
-      aux = rowPos+1
+      aux = rowPos - 1
+    } else {
+      aux = rowPos + 1
     }
 
-    while(nulls < 2){
-      if(aux == this.boardPositions.length){
+    while (nulls < 2) {
+
+      if (aux == this.boardPositions.length) {
         nulls++
-        if(rowPos == 0){
+        if (rowPos == 0) {
           return vert >= 4
         }
-        aux = rowPos-1
+        aux = rowPos - 1
       }
-      let circle = this.boardPositions[aux][columnPos]
-      
-      if(circle == null){
-        nulls++
-      }else{
+      let chip = this.boardPositions[aux][columnPos]
+
+      if (chip != null && chip.getOwner() == owner) {
         vert++;
+      } else {
+        return vert >= 4;
       }
 
-      if(nulls == 0){
+      if (nulls == 0) {
         aux++
-      }else{
+      } else {
         aux--
       }
     }
@@ -149,23 +172,23 @@ class Game {
     return vert >= 4
   }
 
-  checkHorizontal(row, pos){
+  checkHorizontal(row, pos ,owner) {
     let nulls = 0;
-    let aux = pos+1;
+    let aux = pos + 1;
     let hori = 1;
-    while(nulls <= 2){
-      if(row[aux] == null){
-        nulls++;
-        aux = pos-1
-      }else{
+    while (nulls <= 2) {
+      if (row[aux] != null && row[aux].getOwner() == owner) {
         hori++;
+      } else {
+        nulls++;
+        aux = pos - 1
       }
-      if(nulls == 0){
+      if (nulls == 0) {
         aux++
-      }else{
+      } else {
         aux--;
       }
     }
     return hori >= 4
-}
+  }
 }
