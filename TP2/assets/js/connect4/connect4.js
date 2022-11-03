@@ -9,7 +9,6 @@ let arrow = document.getElementById('arrow');
 let game = new Game();
 let board = [];
 let squarePos = [];
-let players = game.getPlayers();
 let boardPositions = game.getBoardPositions()
 
 let form = document.querySelector('form')
@@ -20,7 +19,7 @@ let formData = document.querySelector('form')
     const data = Object.fromEntries(
         new FormData(e.target)
     )
-    startGame(data)
+    init(data)
 })
 
 
@@ -37,40 +36,55 @@ canvas.addEventListener('mousemove', (e) => {
     dragChip(e);
 })
 
-function startGame(data) {
-    init(data)
-}
 
 function init(data) {
-    console.log(data)
-    form.style.display = 'none'
-    chargueBoard();
-    createChips();
-    drawBoard();
+    form.style.display = 'none';
+    game.addPlayers(data.player_1 , data.player_2)
+    setRules(data.connect);
 }
 
-function chargueBoard(){
-    for (let i = 0; i < 6; i++) {
+function setRules(rules){
+    let row = 6;
+    let column = 7;
+    let cant = 21;
+
+    if(rules == 5){
+        row += 1
+        column += 1
+        cant = 28
+    }else if(rules == 6){
+        row += 2
+        column += 2
+        cant = 36;
+    }
+    chargueBoard(row,column);
+    createChips(cant);
+}
+
+function chargueBoard(row,column){
+    for (let i = 0; i < row; i++) {
         let row = []
-        for (let j = 0; j < 7; j++) {
+        for (let j = 0; j < column; j++) {
             row.push(null)
         }
         boardPositions.push(row);    
     }
 }
 
-function createChips() {
+function createChips(cant) {
+    let players = game.getPlayers();
     for (let j = 0; j < players.length; j++) {
-        for (let i = 0; i < 21; i++) {
+        for (let i = 0; i < cant; i++) {
             if (players[j].getId() === 1) {
                 let x = Math.floor(Math.random() * (160 - 10 + 1)) + 10;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
 
-                let color = '#000000';
+                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
+                
                 let chip = new Chip(
                     x,
                     y,
-                    color,
+                    img,
                     players[j].getId(),
                     players[j].getIsPlaying()
                 );
@@ -80,11 +94,11 @@ function createChips() {
                 let x = Math.floor(Math.random() * (1180 - 1050 + 1)) + 1050;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
 
-                let color = 'green';
+                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
                 let chip = new Chip(
                     x,
                     y,
-                    color,
+                    img,
                     players[j].getId(),
                     players[j].getIsPlaying()
                 );
@@ -130,6 +144,7 @@ function drawBoard(){
 
 
 function drawChips() {
+    let players = game.getPlayers();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBoard();
     for (let j = 0; j < players.length; j++) {
@@ -175,7 +190,6 @@ function mouseUp(e) {
 function addChip(rowPos, columnPos){
     let row = boardPositions[rowPos]
     row[columnPos] = game.getPreviusSelectedChip();
-    console.log(row)
 }
 
 function checkPos(pos){
@@ -194,6 +208,7 @@ function checkPos(pos){
 }
 
 function mouseDown(e) {
+    let players = game.getPlayers();
     let clickX = e.pageX - canvas.offsetLeft;
     let clickY = e.pageY - canvas.offsetTop;
     let previousSelectedChip = game.getPreviusSelectedChip();
@@ -223,6 +238,7 @@ function mouseDown(e) {
 
 
 function findClicked(clickX, clickY) {
+    let players = game.getPlayers();
     for (let p = 0; p < players.length; p++) {
         let chips = players[p].getChips();
         for (let i = chips.length - 1; i >= 0; i--) {

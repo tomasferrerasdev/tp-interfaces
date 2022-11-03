@@ -8,7 +8,6 @@ class Game {
     this.isDragging = false;
     this.previousSelectedChip = null;
     this.boardPositions = []
-    this.init();
   }
 
   getBoardPositions() {
@@ -43,14 +42,12 @@ class Game {
     this.turn();
   }
 
-  init() {
-    this.addPlayers();
-  }
 
-  addPlayers() {
-    let p1 = new Player('PUTO', 1, 'QUIROGA', true);
-    let p2 = new Player('HOMO', 2, 'POSCO', false);
+  addPlayers(player_1, player_2) {
+    let p1 = new Player('PUTO', 1, player_1, true);
+    let p2 = new Player('HOMO', 2, player_2, false);
     this.players.push(p1, p2);
+    console.log(this.players)
   }
 
   turn() {

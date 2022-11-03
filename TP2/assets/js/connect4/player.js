@@ -8,6 +8,10 @@ class Player {
     this.isPlaying = isPlaying;
   }
 
+  getCharacter(){
+    return this.character;
+  }
+
   getId() {
     return this.id;
   }

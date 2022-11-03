@@ -1,13 +1,13 @@
 // CONTROLA LAS FICHAS
 
 class Chip {
-  constructor(x, y, color, owner, turn) {
+  constructor(x, y, img, owner, turn) {
     this.originalX = x;
     this.originalY = y;
     this.x = x;
     this.y = y
     this.radius = 20;
-    this.color = color;
+    this.img = img;
     this.isSelected = false;
     this.turn = turn;
     this.owner = owner;
@@ -49,9 +49,14 @@ class Chip {
   }
 
   draw() {
+    console.log(this.img)
     this.context.beginPath();
     this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    this.context.fillStyle = this.color;
+    let image = new Image()
+    image.src = this.img;
+      // create pattern
+      let ptrn = this.context.createPattern(image,'repeat');
+      this.context.fillStyle = ptrn;
     this.context.strokeStyle = '#01FE78';
 
     if (this.isSelected) {
