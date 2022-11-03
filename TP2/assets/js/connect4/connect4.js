@@ -11,6 +11,8 @@ let board = [];
 let squarePos = [];
 let boardPositions = game.getBoardPositions()
 
+const imgPlayer1 = 'http://127.0.0.1:5500/assets/img/benny.jpg';
+
 let form = document.querySelector('form')
 
 let formData = document.querySelector('form')
@@ -21,8 +23,6 @@ let formData = document.querySelector('form')
     )
     init(data)
 })
-
-
 
 game.play();
 
@@ -78,8 +78,7 @@ function createChips(cant) {
             if (players[j].getId() === 1) {
                 let x = Math.floor(Math.random() * (160 - 10 + 1)) + 10;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
-
-                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
+                let img = imgPlayer1;
                 
                 let chip = new Chip(
                     x,
@@ -93,8 +92,9 @@ function createChips(cant) {
             } else {
                 let x = Math.floor(Math.random() * (1180 - 1050 + 1)) + 1050;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
+                let img = imgPlayer1;
+                console.log(img)
 
-                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
                 let chip = new Chip(
                     x,
                     y,
