@@ -4,7 +4,7 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
 
-let img = document.getElementById('connect4');
+let img = document.getElementById('connect4-img');
 let arrow = document.getElementById('arrow');
 let game = new Game();
 let board = [];
@@ -12,8 +12,19 @@ let squarePos = [];
 let players = game.getPlayers();
 let boardPositions = game.getBoardPositions()
 
+let form = document.querySelector('form')
 
-init();
+let formData = document.querySelector('form')
+.addEventListener('submit', e => {
+    e.preventDefault()
+    const data = Object.fromEntries(
+        new FormData(e.target)
+    )
+    startGame(data)
+})
+
+
+
 game.play();
 
 canvas.addEventListener('mouseup', (e) => {
@@ -26,8 +37,13 @@ canvas.addEventListener('mousemove', (e) => {
     dragChip(e);
 })
 
+function startGame(data) {
+    init(data)
+}
 
-function init() {
+function init(data) {
+    console.log(data)
+    form.style.display = 'none'
     chargueBoard();
     createChips();
     drawBoard();
