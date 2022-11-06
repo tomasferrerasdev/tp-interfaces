@@ -11,7 +11,24 @@ let board = [];
 let squarePos = [];
 let boardPositions = game.getBoardPositions()
 
-const imgPlayer1 = 'http://127.0.0.1:5500/assets/img/benny.jpg';
+let characters = [
+        {
+            name: "benny",
+            chip: "http://127.0.0.1:5500/assets/img/chip/poker.png",
+        },
+        {
+            name: "sheriff",
+            chip: "http://127.0.0.1:5500/assets/img/chip/nut.png",
+        },
+        {
+            name: "ncr",
+            chip: "http://127.0.0.1:5500/assets/img/chip/nuka_cola.png",
+        },
+        {
+            name: "npc",
+            chip: "http://127.0.0.1:5500/assets/img/chip/coin.png",
+        }
+    ]
 
 let form = document.querySelector('form')
 
@@ -36,14 +53,14 @@ canvas.addEventListener('mousemove', (e) => {
     dragChip(e);
 })
 
-
 function init(data) {
     form.style.display = 'none';
-    game.addPlayers(data.player_1 , data.player_2)
-    setRules(data.connect);
+    setRules(data);
 }
 
-function setRules(rules){
+
+function setRules(data){
+    let rules = data.connect;
     let row = 6;
     let column = 7;
     let cant = 21;
@@ -58,7 +75,18 @@ function setRules(rules){
         cant = 36;
     }
     chargueBoard(row,column);
-    createChips(cant);
+    setCharacters(data.player_1, data.player_2, cant)
+}
+
+function setCharacters(player_1, player_2, cant){
+    let player_character_1 = characters.find(o => o.name === player_1)
+    let player_character_2 = characters.find(o => o.name === player_2)
+
+    let chips_1 = player_character_1.chip
+    let chips_2 = player_character_2.chip
+
+    game.addPlayers(player_character_1, player_character_2)
+    createChips(cant, chips_1, chips_2)
 }
 
 function chargueBoard(row,column){
@@ -71,14 +99,14 @@ function chargueBoard(row,column){
     }
 }
 
-function createChips(cant) {
+function createChips(cant, chips_1, chips_2) {
     let players = game.getPlayers();
     for (let j = 0; j < players.length; j++) {
         for (let i = 0; i < cant; i++) {
             if (players[j].getId() === 1) {
                 let x = Math.floor(Math.random() * (160 - 10 + 1)) + 10;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
-                let img = imgPlayer1;
+                let img = chips_1;
                 
                 let chip = new Chip(
                     x,
@@ -92,8 +120,7 @@ function createChips(cant) {
             } else {
                 let x = Math.floor(Math.random() * (1180 - 1050 + 1)) + 1050;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
-                let img = imgPlayer1;
-                console.log(img)
+                let img = chips_2;
 
                 let chip = new Chip(
                     x,

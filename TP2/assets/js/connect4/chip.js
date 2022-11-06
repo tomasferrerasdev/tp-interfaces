@@ -6,7 +6,7 @@ class Chip {
     this.originalY = y;
     this.x = x;
     this.y = y
-    this.radius = 20;
+    this.radius = 30;
     this.isSelected = false;
     this.turn = turn;
     this.owner = owner;
@@ -63,7 +63,7 @@ class Chip {
       } else {
           this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius / .5, this.radius / .5);
       }
-
+      
       this.context.closePath();
 }
 
