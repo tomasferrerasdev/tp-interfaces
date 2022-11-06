@@ -49,6 +49,10 @@ class Game {
     this.players.push(p1, p2);
   }
 
+  removePlayers(){
+    this.players = []
+  }
+
   turn() {
     setTimeout(() => {
       this.setTurn()

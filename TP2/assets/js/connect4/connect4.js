@@ -1,3 +1,10 @@
+// -Arreglar timer y boton de reset cuando se mueve una ficha
+// -Arreglar tablero cuando se le pide un tamaño mas grande
+// -Volver a poner de otra forma las intrucciones del juego que ahora estan comentadas en el html
+// -Hacer una pantalla del winner
+
+
+
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d')
 let canvasWidth = canvas.width;
@@ -6,6 +13,9 @@ let canvasHeight = canvas.height;
 
 let img = document.getElementById('connect4-img');
 let arrow = document.getElementById('arrow');
+let reload = document.getElementById('reload');
+let timer;
+let gameData;
 let game = new Game();
 let board = [];
 let squarePos = [];
@@ -15,22 +25,24 @@ font.load().then(function(font) {
     document.fonts.add(font);
 })
 
+
+
 let characters = [
     {
         name: "benny",
-        chip: "http://127.0.0.1:5500/assets/img/chip/poker.png",
+        chip: "./assets/img/chip/poker.png",
     },
     {
         name: "sheriff",
-        chip: "http://127.0.0.1:5500/assets/img/chip/nut.png",
+        chip: "./assets/img/chip/nut.png",
     },
     {
         name: "ncr",
-        chip: "http://127.0.0.1:5500/assets/img/chip/nuka_cola.png",
+        chip: "./assets/img/chip/nuka_cola.png",
     },
     {
         name: "npc",
-        chip: "http://127.0.0.1:5500/assets/img/chip/coin.png",
+        chip: "./assets/img/chip/coin.png",
     }
 ]
 let form = document.querySelector('form')
@@ -41,6 +53,7 @@ let formData = document.querySelector('form')
     const data = Object.fromEntries(
         new FormData(e.target)
     )
+    gameData = data;
     init(data)
 })
 
@@ -99,12 +112,9 @@ function setCharacters(player_1, player_2, cant){
 function drawTimer() {
     // CUANDO DROPEAS LA FICHA HAY QUE DESTRUIR Y REINICIAR EL SET INTERVAL (NECESITA UN NOMBRE PARA DESTRUIRLO)
     // REDIBUJAR TODO CUANDO CAMBIA EL TIMER, CUANDO DRAGGEAS FICHAS REDIBUJAR TIMER
-
- 
     let i = 30;
     (function() {
-        let y = setInterval(function(){
-            console.log("timer")
+        timer = setInterval(function(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBoard()
             drawChips()
@@ -114,32 +124,15 @@ function drawTimer() {
             ctx.fillStyle = "#01fe78";
             ctx.textAlign = "center";
             ctx.fillText(`${i} seconds`, x, y);
+            ctx.drawImage(reload, x+100 , y-50 ,60 ,60)
             i--
             if(i === 0) {
                 game.setTurn()
                 i = 30
             }
-            clearInterval(y)
+            
     }, 1000);
     })();
-/*
-    setInterval(function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawBoard()
-        drawChips()
-        let x = canvasWidth / 2
-        let y = canvasHeight - 20
-        ctx.font = "30px alarm-font";
-        ctx.fillStyle = "#01fe78";
-        ctx.textAlign = "center";
-        ctx.fillText(`${i} seconds`, x, y);
-        i--
-        if(i === 0) {
-            game.setTurn()
-            i = 30
-        }
-    }, 1000);
-    */
 }
 
 function chargueBoard(row,column){
@@ -215,9 +208,6 @@ function drawBoard(){
         }
     }
 }
-    
-    
-
 
 function drawChips() {
     let players = game.getPlayers();
@@ -250,6 +240,7 @@ function mouseUp(e) {
             addChip(rowPos, columnPos)
             drawChips();
             game.setTurn();
+            clearInterval(timer);
             drawTimer()
             game.checkWinner(columnPos, rowPos)
             
@@ -304,11 +295,27 @@ function mouseDown(e) {
             }
         }
         }
-        return;
+
+    }else if(checkResetArea(clickX, clickY)){
+        clearAll();
+       setRules(gameData)
     }
 }
 
+function clearAll(){
+    boardPositions = [];
+    game.removePlayers();
+    clearInterval(timer)
+}
 
+function checkResetArea(clickX, clickY){
+    let x = (canvasWidth / 2) + 100
+    let y = (canvasHeight - 20) - 50
+    if(!(clickX < x || clickX > x + 60 || clickY < 60 || clickY > y + 60)){
+        return true
+    }
+    return false
+}
 
 
 function findClicked(clickX, clickY) {
@@ -334,7 +341,7 @@ function dragChip(e) {
             let y = e.pageY - canvas.offsetTop;
             game.getPreviusSelectedChip().setX(x);
             game.getPreviusSelectedChip().setY(y);
-
+            drawTimer();
             drawChips();
         }
     }

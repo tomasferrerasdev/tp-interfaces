@@ -34,4 +34,8 @@ class Player {
   addChip(chip) {
     this.chips.push(chip);
   }
+
+  clearChips(){
+    this.chips = []
+  }
 }
