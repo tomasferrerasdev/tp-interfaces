@@ -70,13 +70,13 @@ class Game {
     let row = this.boardPositions[rowPos]
     let owner = this.boardPositions[rowPos][columnPos].getOwner();
     if (this.checkHorizontal(row, columnPos, owner)) {
-      alert("GANASTE CAPO (horizontal)")
+      return [true, owner]
     }
     if (this.checkVertical(rowPos, columnPos, owner)) {
-      alert("GANASTE CAPO (vertical)")
+      return [true, owner]
     }
     if (this.checkDiagonal1(rowPos, columnPos, owner) || this.checkDiagonal2(rowPos, columnPos, owner)) {
-      alert("GANASTE CAPO (diagonal)")
+      return [true, owner]
     }
 
   }

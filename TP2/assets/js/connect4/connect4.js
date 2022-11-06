@@ -1,4 +1,3 @@
-// -Arreglar timer y boton de reset cuando se mueve una ficha
 // -Arreglar tablero cuando se le pide un tamaño mas grande
 // -Volver a poner de otra forma las intrucciones del juego que ahora estan comentadas en el html
 // -Hacer una pantalla del winner
@@ -10,6 +9,17 @@ let ctx = canvas.getContext('2d')
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
+let winnerScreen = document.getElementById('winner')
+let winnerName = document.getElementById('winner-name')
+let form = document.querySelector('form')
+
+document.getElementById('reset-btn').onclick = function() {
+    document.querySelector('form').style.display = "flex"
+    document.getElementById("winner").style.display = "none";
+
+    //reset (arreglar fondo)
+    clearAll();
+}
 
 let img = document.getElementById('connect4-img');
 let arrow = document.getElementById('arrow');
@@ -21,6 +31,7 @@ let board = [];
 let squarePos = [];
 let boardPositions = game.getBoardPositions()
 let font = new FontFace('alarm-font', 'url(assets/font/alarm-clock.ttf)');
+
 font.load().then(function(font) {
     document.fonts.add(font);
 })
@@ -45,7 +56,6 @@ let characters = [
         chip: "./assets/img/chip/coin.png",
     }
 ]
-let form = document.querySelector('form')
 
 let formData = document.querySelector('form')
 .addEventListener('submit', e => {
@@ -107,32 +117,28 @@ function setCharacters(player_1, player_2, cant){
     createChips(cant, chips_1, chips_2)
 }
 
-
-
 function drawTimer() {
-    // CUANDO DROPEAS LA FICHA HAY QUE DESTRUIR Y REINICIAR EL SET INTERVAL (NECESITA UN NOMBRE PARA DESTRUIRLO)
-    // REDIBUJAR TODO CUANDO CAMBIA EL TIMER, CUANDO DRAGGEAS FICHAS REDIBUJAR TIMER
+    if(reload) reload.addEventListener
+
     let i = 30;
-    (function() {
-        timer = setInterval(function(){
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawBoard()
-            drawChips()
-            let x = canvasWidth / 2
-            let y = canvasHeight - 20
-            ctx.font = "30px alarm-font";
-            ctx.fillStyle = "#01fe78";
-            ctx.textAlign = "center";
-            ctx.fillText(`${i} seconds`, x, y);
-            ctx.drawImage(reload, x+100 , y-50 ,60 ,60)
-            i--
-            if(i === 0) {
-                game.setTurn()
-                i = 30
-            }
-            
+    interval = setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBoard()
+        drawChips()
+        let x = canvasWidth / 2
+        let y = canvasHeight - 20
+        ctx.font = "30px alarm-font";
+        ctx.fillStyle = "#01fe78";
+        ctx.textAlign = "center";
+        ctx.fillText(`${i} seconds`, x-100, y);
+        ctx.fillText(` - `, x + 20, y);
+        ctx.fillText(`reset`,  x+100 , y);
+        i--;
+        if(i === 0) {
+            game.setTurn()
+            i = 30;
+        }
     }, 1000);
-    })();
 }
 
 function chargueBoard(row,column){
@@ -240,17 +246,21 @@ function mouseUp(e) {
             addChip(rowPos, columnPos)
             drawChips();
             game.setTurn();
-            clearInterval(timer);
+            clearInterval(interval)
             drawTimer()
-            game.checkWinner(columnPos, rowPos)
-            
+            let winner = game.checkWinner(columnPos, rowPos)
+            let winner_names = game.getPlayers()
+            if(winner != undefined) {
+                if(winner[0] === true) {
+                    winnerScreen.style.display = "flex"
+                    winnerName.innerHTML = `<h1>${winner_names[winner[1]-1].name}</h1>`
+                }
+            }
         }else{
             game.getPreviusSelectedChip().resetPosition();
             drawChips();
         }
     }
-
-
     game.setIsDragging(false)
     
 }
@@ -290,14 +300,15 @@ function mouseDown(e) {
             if (players[p].getIsPlaying() == true) {
                 if (clickedChip.getOwner() === players[p].getId()) {
                         clickedChip.setIsSelected(true);
+                        drawChips();
                         game.setIsDragging(true);
+
                 }
             }
         }
         }
-
     }else if(checkResetArea(clickX, clickY)){
-        clearAll();
+       clearAll();
        setRules(gameData)
     }
 }
@@ -305,7 +316,7 @@ function mouseDown(e) {
 function clearAll(){
     boardPositions = [];
     game.removePlayers();
-    clearInterval(timer)
+    clearInterval(interval)
 }
 
 function checkResetArea(clickX, clickY){
@@ -341,7 +352,6 @@ function dragChip(e) {
             let y = e.pageY - canvas.offsetTop;
             game.getPreviusSelectedChip().setX(x);
             game.getPreviusSelectedChip().setY(y);
-            drawTimer();
             drawChips();
         }
     }
