@@ -10,6 +10,11 @@ let game = new Game();
 let board = [];
 let squarePos = [];
 let boardPositions = game.getBoardPositions()
+let font = new FontFace('alarm-font', 'url(assets/font/alarm-clock.ttf)');
+font.load().then(function(font) {
+    console.log('font ready');
+    document.fonts.add(font);
+})
 
 let characters = [
         {
@@ -59,6 +64,7 @@ function init(data) {
 }
 
 
+
 function setRules(data){
     let rules = data.connect;
     let row = 6;
@@ -75,7 +81,8 @@ function setRules(data){
         cant = 36;
     }
     chargueBoard(row,column);
-    setCharacters(data.player_1, data.player_2, cant)
+    setCharacters(data.player_1, data.player_2, cant);
+    drawTimer()
 }
 
 function setCharacters(player_1, player_2, cant){
@@ -87,6 +94,30 @@ function setCharacters(player_1, player_2, cant){
 
     game.addPlayers(player_character_1, player_character_2)
     createChips(cant, chips_1, chips_2)
+}
+
+function drawTimer() {
+    let i = 10;
+    setInterval(function() {
+        
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBoard()
+            drawChips()
+            console.log("timer")
+            let x = canvasWidth / 2
+            let y = canvasHeight - 20
+            ctx.font = "30px alarm-font";
+            ctx.fillStyle = "#01fe78";
+            ctx.textAlign = "center";
+            ctx.fillText(`${i} seconds`, x, y);
+            i--
+            if(i === 0) {
+                //cambiar turno
+                i=10
+            }
+    }, 1000);
+
+   
 }
 
 function chargueBoard(row,column){
@@ -163,8 +194,6 @@ function drawBoard(){
             }
         }
     }
-    
-  
 }
     
     
