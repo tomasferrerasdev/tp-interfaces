@@ -49,15 +49,21 @@ class Chip {
   }
 
   draw() {
-    console.log(this.img)
+    let image = new Image()
     this.context.beginPath();
     this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    let image = new Image()
-    image.src = this.img;
-      // create pattern
-      let ptrn = this.context.createPattern(image,'repeat');
-      this.context.fillStyle = ptrn;
-    this.context.strokeStyle = '#01FE78';
+
+    if(image.src === "") {
+      
+      image.src = this.img;
+      let loadImg = function () {
+        this.context.drawImage(image, this.x - this.radius, this.y - this.radius, this.radius / .5, this.radius / .5);
+      }
+      
+      this.image.onload = loadImg.bind(this);
+    }else {
+      this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius / .5, this.radius / .5);
+    }
 
     if (this.isSelected) {
       this.context.lineWidth = 2.5;
