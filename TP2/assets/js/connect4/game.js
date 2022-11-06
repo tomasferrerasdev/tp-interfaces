@@ -47,7 +47,6 @@ class Game {
     let p1 = new Player('PUTO', 1, player_1, true);
     let p2 = new Player('HOMO', 2, player_2, false);
     this.players.push(p1, p2);
-    console.log(this.players)
   }
 
   turn() {
@@ -55,7 +54,7 @@ class Game {
       this.setTurn()
       console.log("change")
       this.turn();
-    }, 3000000000000);
+    }, 30000000);
   }
 
   setTurn() {

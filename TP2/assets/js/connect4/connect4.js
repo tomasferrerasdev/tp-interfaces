@@ -10,7 +10,29 @@ let game = new Game();
 let board = [];
 let squarePos = [];
 let boardPositions = game.getBoardPositions()
+let font = new FontFace('alarm-font', 'url(assets/font/alarm-clock.ttf)');
+font.load().then(function(font) {
+    document.fonts.add(font);
+})
 
+let characters = [
+    {
+        name: "benny",
+        chip: "http://127.0.0.1:5500/assets/img/chip/poker.png",
+    },
+    {
+        name: "sheriff",
+        chip: "http://127.0.0.1:5500/assets/img/chip/nut.png",
+    },
+    {
+        name: "ncr",
+        chip: "http://127.0.0.1:5500/assets/img/chip/nuka_cola.png",
+    },
+    {
+        name: "npc",
+        chip: "http://127.0.0.1:5500/assets/img/chip/coin.png",
+    }
+]
 let form = document.querySelector('form')
 
 let formData = document.querySelector('form')
@@ -21,8 +43,6 @@ let formData = document.querySelector('form')
     )
     init(data)
 })
-
-
 
 game.play();
 
@@ -36,14 +56,15 @@ canvas.addEventListener('mousemove', (e) => {
     dragChip(e);
 })
 
-
 function init(data) {
     form.style.display = 'none';
-    game.addPlayers(data.player_1 , data.player_2)
-    setRules(data.connect);
+    setRules(data);
 }
 
-function setRules(rules){
+
+
+function setRules(data){
+    let rules = data.connect;
     let row = 6;
     let column = 7;
     let cant = 21;
@@ -58,7 +79,67 @@ function setRules(rules){
         cant = 36;
     }
     chargueBoard(row,column);
-    createChips(cant);
+    setCharacters(data.player_1, data.player_2, cant);
+    drawTimer()
+}
+
+function setCharacters(player_1, player_2, cant){
+    let player_character_1 = characters.find(o => o.name === player_1)
+    let player_character_2 = characters.find(o => o.name === player_2)
+
+    let chips_1 = player_character_1.chip
+    let chips_2 = player_character_2.chip
+
+    game.addPlayers(player_character_1, player_character_2)
+    createChips(cant, chips_1, chips_2)
+}
+
+
+
+function drawTimer() {
+    // CUANDO DROPEAS LA FICHA HAY QUE DESTRUIR Y REINICIAR EL SET INTERVAL (NECESITA UN NOMBRE PARA DESTRUIRLO)
+    // REDIBUJAR TODO CUANDO CAMBIA EL TIMER, CUANDO DRAGGEAS FICHAS REDIBUJAR TIMER
+
+ 
+    let i = 30;
+    (function() {
+        let y = setInterval(function(){
+            console.log("timer")
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBoard()
+            drawChips()
+            let x = canvasWidth / 2
+            let y = canvasHeight - 20
+            ctx.font = "30px alarm-font";
+            ctx.fillStyle = "#01fe78";
+            ctx.textAlign = "center";
+            ctx.fillText(`${i} seconds`, x, y);
+            i--
+            if(i === 0) {
+                game.setTurn()
+                i = 30
+            }
+            clearInterval(y)
+    }, 1000);
+    })();
+/*
+    setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBoard()
+        drawChips()
+        let x = canvasWidth / 2
+        let y = canvasHeight - 20
+        ctx.font = "30px alarm-font";
+        ctx.fillStyle = "#01fe78";
+        ctx.textAlign = "center";
+        ctx.fillText(`${i} seconds`, x, y);
+        i--
+        if(i === 0) {
+            game.setTurn()
+            i = 30
+        }
+    }, 1000);
+    */
 }
 
 function chargueBoard(row,column){
@@ -71,15 +152,14 @@ function chargueBoard(row,column){
     }
 }
 
-function createChips(cant) {
+function createChips(cant, chips_1, chips_2) {
     let players = game.getPlayers();
     for (let j = 0; j < players.length; j++) {
         for (let i = 0; i < cant; i++) {
             if (players[j].getId() === 1) {
                 let x = Math.floor(Math.random() * (160 - 10 + 1)) + 10;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
-
-                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
+                let img = chips_1;
                 
                 let chip = new Chip(
                     x,
@@ -93,8 +173,8 @@ function createChips(cant) {
             } else {
                 let x = Math.floor(Math.random() * (1180 - 1050 + 1)) + 1050;
                 let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
+                let img = chips_2;
 
-                let img = `http://127.0.0.1:5500/TP2/assets/img/${players[j].getCharacter()}.jpg`;
                 let chip = new Chip(
                     x,
                     y,
@@ -129,15 +209,11 @@ function drawBoard(){
                     w : 60,
                     h : 60
                 }
-                
                 squarePos.push(throwPos)
-
                 ctx.drawImage(arrow,pos + j*61,posy - 61, 60 ,60)
             }
         }
     }
-    
-  
 }
     
     
@@ -174,6 +250,7 @@ function mouseUp(e) {
             addChip(rowPos, columnPos)
             drawChips();
             game.setTurn();
+            drawTimer()
             game.checkWinner(columnPos, rowPos)
             
         }else{
@@ -200,7 +277,6 @@ function checkPos(pos){
             if(j == pos && aux[j] != null){
                 return index-1
             }
-            
         }
         i = index
     }
@@ -222,10 +298,8 @@ function mouseDown(e) {
         for (let p = 0; p < players.length; p++) {
             if (players[p].getIsPlaying() == true) {
                 if (clickedChip.getOwner() === players[p].getId()) {
-                    
                         clickedChip.setIsSelected(true);
                         game.setIsDragging(true);
-                    
                 }
             }
         }
@@ -261,7 +335,6 @@ function dragChip(e) {
             game.getPreviusSelectedChip().setX(x);
             game.getPreviusSelectedChip().setY(y);
 
-            
             drawChips();
         }
     }
