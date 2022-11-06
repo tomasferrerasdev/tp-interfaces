@@ -12,29 +12,27 @@ let squarePos = [];
 let boardPositions = game.getBoardPositions()
 let font = new FontFace('alarm-font', 'url(assets/font/alarm-clock.ttf)');
 font.load().then(function(font) {
-    console.log('font ready');
     document.fonts.add(font);
 })
 
 let characters = [
-        {
-            name: "benny",
-            chip: "http://127.0.0.1:5500/assets/img/chip/poker.png",
-        },
-        {
-            name: "sheriff",
-            chip: "http://127.0.0.1:5500/assets/img/chip/nut.png",
-        },
-        {
-            name: "ncr",
-            chip: "http://127.0.0.1:5500/assets/img/chip/nuka_cola.png",
-        },
-        {
-            name: "npc",
-            chip: "http://127.0.0.1:5500/assets/img/chip/coin.png",
-        }
-    ]
-
+    {
+        name: "benny",
+        chip: "http://127.0.0.1:5500/assets/img/chip/poker.png",
+    },
+    {
+        name: "sheriff",
+        chip: "http://127.0.0.1:5500/assets/img/chip/nut.png",
+    },
+    {
+        name: "ncr",
+        chip: "http://127.0.0.1:5500/assets/img/chip/nuka_cola.png",
+    },
+    {
+        name: "npc",
+        chip: "http://127.0.0.1:5500/assets/img/chip/coin.png",
+    }
+]
 let form = document.querySelector('form')
 
 let formData = document.querySelector('form')
@@ -96,14 +94,20 @@ function setCharacters(player_1, player_2, cant){
     createChips(cant, chips_1, chips_2)
 }
 
+
+
 function drawTimer() {
-    let i = 10;
-    setInterval(function() {
-        
+    // CUANDO DROPEAS LA FICHA HAY QUE DESTRUIR Y REINICIAR EL SET INTERVAL (NECESITA UN NOMBRE PARA DESTRUIRLO)
+    // REDIBUJAR TODO CUANDO CAMBIA EL TIMER, CUANDO DRAGGEAS FICHAS REDIBUJAR TIMER
+
+ 
+    let i = 30;
+    (function() {
+        let y = setInterval(function(){
+            console.log("timer")
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBoard()
             drawChips()
-            console.log("timer")
             let x = canvasWidth / 2
             let y = canvasHeight - 20
             ctx.font = "30px alarm-font";
@@ -112,12 +116,30 @@ function drawTimer() {
             ctx.fillText(`${i} seconds`, x, y);
             i--
             if(i === 0) {
-                //cambiar turno
-                i=10
+                game.setTurn()
+                i = 30
             }
+            clearInterval(y)
     }, 1000);
-
-   
+    })();
+/*
+    setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBoard()
+        drawChips()
+        let x = canvasWidth / 2
+        let y = canvasHeight - 20
+        ctx.font = "30px alarm-font";
+        ctx.fillStyle = "#01fe78";
+        ctx.textAlign = "center";
+        ctx.fillText(`${i} seconds`, x, y);
+        i--
+        if(i === 0) {
+            game.setTurn()
+            i = 30
+        }
+    }, 1000);
+    */
 }
 
 function chargueBoard(row,column){
@@ -187,9 +209,7 @@ function drawBoard(){
                     w : 60,
                     h : 60
                 }
-                
                 squarePos.push(throwPos)
-
                 ctx.drawImage(arrow,pos + j*61,posy - 61, 60 ,60)
             }
         }
@@ -230,6 +250,7 @@ function mouseUp(e) {
             addChip(rowPos, columnPos)
             drawChips();
             game.setTurn();
+            drawTimer()
             game.checkWinner(columnPos, rowPos)
             
         }else{
@@ -256,7 +277,6 @@ function checkPos(pos){
             if(j == pos && aux[j] != null){
                 return index-1
             }
-            
         }
         i = index
     }
@@ -278,10 +298,8 @@ function mouseDown(e) {
         for (let p = 0; p < players.length; p++) {
             if (players[p].getIsPlaying() == true) {
                 if (clickedChip.getOwner() === players[p].getId()) {
-                    
                         clickedChip.setIsSelected(true);
                         game.setIsDragging(true);
-                    
                 }
             }
         }
@@ -317,7 +335,6 @@ function dragChip(e) {
             game.getPreviusSelectedChip().setX(x);
             game.getPreviusSelectedChip().setY(y);
 
-            
             drawChips();
         }
     }
