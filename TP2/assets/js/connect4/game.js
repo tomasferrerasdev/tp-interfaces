@@ -66,22 +66,22 @@ class Game {
     this.players[1].setIsPlaying(!this.players[1].getIsPlaying());
   }
 
-  checkWinner(columnPos, rowPos) {
+  checkWinner(columnPos, rowPos , connect) {
     let row = this.boardPositions[rowPos]
     let owner = this.boardPositions[rowPos][columnPos].getOwner();
-    if (this.checkHorizontal(row, columnPos, owner)) {
+    if (this.checkHorizontal(row, columnPos, owner, connect)) {
       return [true, owner]
     }
-    if (this.checkVertical(rowPos, columnPos, owner)) {
+    if (this.checkVertical(rowPos, columnPos, owner, connect)) {
       return [true, owner]
     }
-    if (this.checkDiagonal1(rowPos, columnPos, owner) || this.checkDiagonal2(rowPos, columnPos, owner)) {
+    if (this.checkDiagonal1(rowPos, columnPos, owner, connect) || this.checkDiagonal2(rowPos, columnPos, owner, connect)) {
       return [true, owner]
     }
 
   }
 
-  checkDiagonal1(rowPos, columnPos, owner) {
+  checkDiagonal1(rowPos, columnPos, owner, connect) {
     let row = rowPos;
     let col = columnPos;
     let diag = 1;
@@ -103,10 +103,10 @@ class Game {
       }
     }
 
-    return diag >= 4
+    return diag >= connect
   }
 
-  checkDiagonal2(rowPos, columnPos, owner) {
+  checkDiagonal2(rowPos, columnPos, owner, connect) {
     let row = rowPos;
     let col = columnPos;
     let diag = 1;
@@ -129,11 +129,11 @@ class Game {
       }
     }
 
-    return diag >= 4;
+    return diag >= connect;
   }
 
 
-  checkVertical(rowPos, columnPos, owner) {
+  checkVertical(rowPos, columnPos, owner, connect) {
     let nulls = 0;
     let vert = 1;
     let aux;
@@ -150,7 +150,7 @@ class Game {
       if (aux == this.boardPositions.length) {
         nulls++
         if (rowPos == 0) {
-          return vert >= 4
+          return vert >= connect
         }
         aux = rowPos - 1
       }
@@ -159,7 +159,7 @@ class Game {
       if (chip != null && chip.getOwner() == owner) {
         vert++;
       } else {
-        return vert >= 4;
+        return vert >= connect;
       }
 
       if (nulls == 0) {
@@ -169,10 +169,10 @@ class Game {
       }
     }
 
-    return vert >= 4
+    return vert >= connect
   }
 
-  checkHorizontal(row, pos ,owner) {
+  checkHorizontal(row, pos ,owner, connect) {
     let nulls = 0;
     let aux = pos + 1;
     let hori = 1;
@@ -189,6 +189,6 @@ class Game {
         aux--;
       }
     }
-    return hori >= 4
+    return hori >= connect
   }
 }

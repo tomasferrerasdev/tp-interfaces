@@ -1,5 +1,4 @@
 // -Arreglar tablero cuando se le pide un tamaño mas grande
-// -Volver a poner de otra forma las intrucciones del juego que ahora estan comentadas en el html
 // -Hacer una pantalla del winner
 
 
@@ -91,6 +90,7 @@ function setRules(data){
     let row = 6;
     let column = 7;
     let cant = 21;
+    
 
     if(rules == 5){
         row += 1
@@ -190,8 +190,8 @@ function createChips(cant, chips_1, chips_2) {
 
 function drawBoard(){
     squarePos = [];
-    let pos = canvas.width/2 - 420/2 ;
-    let posy= canvas.height/2 - 360/2;
+    let pos = canvas.width/2 - 540/2 ;
+    let posy= canvas.height/2 - 420/2;
     for (let i = 0; i < boardPositions.length; i++) {
         let row = boardPositions[i]
         for (let j = 0; j < row.length; j++) {
@@ -229,7 +229,7 @@ function drawChips() {
 
 function isDropped(x,y){
     for (let i = 0; i < squarePos.length; i++) {
-        if(!(x < squarePos[i].x || x > squarePos[i].x + squarePos[i].w || y < squarePos[i].h || y > squarePos[i].y + squarePos[i].h)){
+        if(!(x < squarePos[i].x || x > squarePos[i].x + squarePos[i].w || y < squarePos[i].y || y > squarePos[i].y + squarePos[i].h)){
             return i
         }
     }
@@ -248,7 +248,7 @@ function mouseUp(e) {
             game.setTurn();
             clearInterval(interval)
             drawTimer()
-            let winner = game.checkWinner(columnPos, rowPos)
+            let winner = game.checkWinner(columnPos, rowPos , gameData.connect)
             let winner_names = game.getPlayers()
             if(winner != undefined) {
                 if(winner[0] === true) {
