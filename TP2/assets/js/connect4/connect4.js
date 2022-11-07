@@ -127,8 +127,13 @@ function setCharacters(player_1, player_2, cant){
 }
 
 function drawCharacters(){
-    ctx.drawImage(characterPic_1, 50 ,350, 150 ,150)
-    ctx.drawImage(characterPic_2, 1000 ,350, 150 ,150)
+    let x = canvasWidth / 2
+    let y = canvasHeight - 20
+    ctx.font = "30px alarm-font";
+    ctx.fillStyle = "#01fe78";
+    ctx.textAlign = "center";
+    ctx.fillText(`${gameData.player_1}`, x - 500 , y-500)
+    ctx.fillText(`${gameData.player_2}`, x + 500 , y-500)
 }
 
 function drawTimer() {
@@ -144,8 +149,6 @@ function drawTimer() {
         ctx.font = "30px alarm-font";
         ctx.fillStyle = "#01fe78";
         ctx.textAlign = "center";
-        ctx.fillText(`${gameData.player_1}`, x - 500 , y-500)
-        ctx.fillText(`${gameData.player_2}`, x + 500 , y-500)
         ctx.fillText(`${i} seconds`, x-(60 * gameData.connect), y);
         if(gameData.connect != 6){
             ctx.fillText(` - `, x + 20, y);
