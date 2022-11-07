@@ -1,5 +1,4 @@
-// -Arreglar tablero cuando se le pide un tamaño mas grande
-// -Hacer una pantalla del winner
+
 
 
 
@@ -23,12 +22,15 @@ document.getElementById('reset-btn').onclick = function() {
 let img = document.getElementById('connect4-img');
 let arrow = document.getElementById('arrow');
 let reload = document.getElementById('reload');
+
+let characterPic_1;
+let characterPic_2;
 let timer;
 let gameData;
-let game = new Game();
+let game ;
 let board = [];
 let squarePos = [];
-let boardPositions = game.getBoardPositions()
+let boardPositions ;
 let font = new FontFace('alarm-font', 'url(assets/font/alarm-clock.ttf)');
 
 font.load().then(function(font) {
@@ -53,6 +55,7 @@ let characters = [
     {
         name: "npc",
         chip: "./assets/img/chip/coin.png",
+        
     }
 ]
 
@@ -66,7 +69,7 @@ let formData = document.querySelector('form')
     init(data)
 })
 
-game.play();
+
 
 canvas.addEventListener('mouseup', (e) => {
     mouseUp(e);
@@ -80,6 +83,8 @@ canvas.addEventListener('mousemove', (e) => {
 
 function init(data) {
     form.style.display = 'none';
+    game = new Game();
+    boardPositions = game.getBoardPositions();
     setRules(data);
 }
 
@@ -113,8 +118,17 @@ function setCharacters(player_1, player_2, cant){
     let chips_1 = player_character_1.chip
     let chips_2 = player_character_2.chip
 
+    characterPic_1 = document.querySelector(`#${player_character_1.name}Pic`)
+    characterPic_2 = document.querySelector(`#${player_character_2.name}Pic`)
+
     game.addPlayers(player_character_1, player_character_2)
     createChips(cant, chips_1, chips_2)
+    
+}
+
+function drawCharacters(){
+    ctx.drawImage(characterPic_1, 50 ,350, 150 ,150)
+    ctx.drawImage(characterPic_2, 1000 ,350, 150 ,150)
 }
 
 function drawTimer() {
@@ -130,9 +144,11 @@ function drawTimer() {
         ctx.font = "30px alarm-font";
         ctx.fillStyle = "#01fe78";
         ctx.textAlign = "center";
-        ctx.fillText(`${i} seconds`, x-100, y);
-        ctx.fillText(` - `, x + 20, y);
-        ctx.fillText(`reset`,  x+100 , y);
+        ctx.fillText(`${i} seconds`, x-(60 * gameData.connect), y);
+        if(gameData.connect != 6){
+            ctx.fillText(` - `, x + 20, y);
+        }
+        ctx.fillText(`reset`,  x+(60 * gameData.connect) , y);
         i--;
         if(i === 0) {
             game.setTurn()
@@ -188,6 +204,7 @@ function createChips(cant, chips_1, chips_2) {
     }
 }
 
+
 function drawBoard(){
     squarePos = [];
     let pos = canvas.width/2 - 540/2 ;
@@ -218,6 +235,7 @@ function drawBoard(){
 function drawChips() {
     let players = game.getPlayers();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCharacters()
     drawBoard();
     for (let j = 0; j < players.length; j++) {
         let chips = players[j].getChips();
@@ -266,8 +284,7 @@ function mouseUp(e) {
 }
 
 function addChip(rowPos, columnPos){
-    let row = boardPositions[rowPos]
-    row[columnPos] = game.getPreviusSelectedChip();
+    boardPositions[rowPos][columnPos] = game.getPreviusSelectedChip();
 }
 
 function checkPos(pos){
@@ -320,8 +337,8 @@ function clearAll(){
 }
 
 function checkResetArea(clickX, clickY){
-    let x = (canvasWidth / 2) + 100
-    let y = (canvasHeight - 20) - 50
+    let x = (canvasWidth / 2) + (60 * gameData.connect) - 25
+    let y = canvasHeight - 20
     if(!(clickX < x || clickX > x + 60 || clickY < 60 || clickY > y + 60)){
         return true
     }

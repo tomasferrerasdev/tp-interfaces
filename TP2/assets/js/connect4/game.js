@@ -44,21 +44,13 @@ class Game {
 
 
   addPlayers(player_1, player_2) {
-    let p1 = new Player('PUTO', 1, player_1, true);
-    let p2 = new Player('HOMO', 2, player_2, false);
+    let p1 = new Player('Player 1', 1, player_1, true);
+    let p2 = new Player('Player 2', 2, player_2, false);
     this.players.push(p1, p2);
   }
 
   removePlayers(){
     this.players = []
-  }
-
-  turn() {
-    setTimeout(() => {
-      this.setTurn()
-      console.log("change")
-      this.turn();
-    }, 30000000);
   }
 
   setTurn() {
