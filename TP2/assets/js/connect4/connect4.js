@@ -144,6 +144,8 @@ function drawTimer() {
         ctx.font = "30px alarm-font";
         ctx.fillStyle = "#01fe78";
         ctx.textAlign = "center";
+        ctx.fillText(`${gameData.player_1}`, x - 500 , y-500)
+        ctx.fillText(`${gameData.player_2}`, x + 500 , y-500)
         ctx.fillText(`${i} seconds`, x-(60 * gameData.connect), y);
         if(gameData.connect != 6){
             ctx.fillText(` - `, x + 20, y);
@@ -173,7 +175,7 @@ function createChips(cant, chips_1, chips_2) {
         for (let i = 0; i < cant; i++) {
             if (players[j].getId() === 1) {
                 let x = Math.floor(Math.random() * (160 - 10 + 1)) + 10;
-                let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
+                let y = Math.floor(Math.random() * (310 - 10 + 1)) + 80;
                 let img = chips_1;
                 
                 let chip = new Chip(
@@ -187,7 +189,7 @@ function createChips(cant, chips_1, chips_2) {
                 players[j].addChip(chip);
             } else {
                 let x = Math.floor(Math.random() * (1180 - 1050 + 1)) + 1050;
-                let y = Math.floor(Math.random() * (310 - 10 + 1)) + 10;
+                let y = Math.floor(Math.random() * (310 - 10 + 1)) + 80;
                 let img = chips_2;
 
                 let chip = new Chip(
