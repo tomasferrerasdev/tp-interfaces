@@ -61,22 +61,24 @@ class Game {
   checkWinner(columnPos, rowPos , connect) {
     let row = this.boardPositions[rowPos]
     let owner = this.boardPositions[rowPos][columnPos].getOwner();
+    let diag = 1;
     if (this.checkHorizontal(row, columnPos, owner, connect)) {
       return [true, owner]
     }
     if (this.checkVertical(rowPos, columnPos, owner, connect)) {
       return [true, owner]
     }
-    if (this.checkDiagonal1(rowPos, columnPos, owner, connect) || this.checkDiagonal2(rowPos, columnPos, owner, connect)) {
+    diag += this.checkDiagonal1(rowPos, columnPos, owner, connect) + this.checkDiagonal2(rowPos, columnPos, owner, connect)
+    if (diag >= connect) {
       return [true, owner]
     }
 
   }
 
-  checkDiagonal1(rowPos, columnPos, owner, connect) {
+  checkDiagonal1(rowPos, columnPos, owner) {
     let row = rowPos;
     let col = columnPos;
-    let diag = 1;
+    let diag = 0;
     while (col != this.boardPositions[row].length - 1 && row != 0) {
       row--;
       col++;
@@ -95,13 +97,13 @@ class Game {
       }
     }
 
-    return diag >= connect
+    return diag 
   }
 
-  checkDiagonal2(rowPos, columnPos, owner, connect) {
+  checkDiagonal2(rowPos, columnPos, owner) {
     let row = rowPos;
     let col = columnPos;
-    let diag = 1;
+    let diag = 0;
     while (row != 0 && col != 1) {
       row--;
       col--;
@@ -121,7 +123,7 @@ class Game {
       }
     }
 
-    return diag >= connect;
+    return diag 
   }
 
 
@@ -168,12 +170,12 @@ class Game {
     let nulls = 0;
     let aux = pos + 1;
     let hori = 1;
-    while (nulls <= 2) {
+    while (nulls < 2) {
       if (row[aux] != null && row[aux].getOwner() == owner) {
         hori++;
       } else {
         nulls++;
-        aux = pos - 1
+        aux = pos ;
       }
       if (nulls == 0) {
         aux++
