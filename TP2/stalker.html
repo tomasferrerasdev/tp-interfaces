@@ -5,34 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="shortcut icon"
-      href="./assets/img/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
     <title>RockinGames</title>
   </head>
+  
+  <body id="body">
 
-  <body>
-    <div class="stalker__hero" id="hero">
-      <header class="header" id="header">
-        <nav class="nav container">
+    <header class="header" id="header">
+        <nav class="nav container" id="nav">
           <div class="nav-left">
             <a href="./index.html" class="nav__logo">
               <img
                 src="./assets/img/logo.svg"
                 alt="RockinGames logo"
                 class="nav__logo-img"
+                id="nav-logo"
               />
             </a>
             <div class="nav-item-container">
@@ -57,16 +43,16 @@
 
             <ul class="nav__list">
               <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">Free</a>
+                <a href="#" class="fw-bold fs-h3 nav__link nav__link-1">Free</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">PlayStation 2</a>
+                <a href="#" class="fw-bold fs-h3 nav__link nav__link-2">PlayStation 2</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">RPG</a>
+                <a href="#" class="fw-bold fs-h3 nav__link nav__link-3">RPG</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="fw-bold fs-h3 nav__link">Premium</a>
+                <a href="#" class="fw-bold fs-h3 nav__link nav__link-4">Premium</a>
               </li>
             </ul>
 
@@ -76,250 +62,211 @@
               <a href="#" class="fw-bold nav__link">Twitter</a>
               <a href="#" class="fw-bold nav__link">Discord</a>
             </div>
-
-            <div class="nav__close" id="nav-close">
-              <i class="bx bx-x"></i>
-            </div>
           </div>
 
           <div class="nav-right">
             <div class="nav-avatar">
-              <img src="./assets/img/avatar.png" alt="avatar image" />
+              <img src="./assets/img/avatar.png" alt="avatar image" class="avatar-img" id="avatar-img" />
               <p class="p-1 fw-regular">Eddie C. Blaylock</p>
             </div>
-            <div class="nav__toggle" id="nav-toggle">
-              <i class="bx bx-menu"></i>
+            <div class="menu-btn">
+              <div class="hamburger" id="hamburger"></div>
             </div>
           </div>
         </nav>
       </header>
 
-      <div class="showcase" id="showcase">
-        <img src="./assets/img/stalker/rad1.webp" alt="" />
-        <img
-          src="./assets/img/stalker-showcase.png"
-          alt=""
-          class="showcase-img"
-        />
-        <div class="showcase__container container">
-          <div class="breadcrumb">
-            <div class="breadcrumb__list stalker__breadcrumb">
-              <a href="./index.html">Home</a>
-              <img src="./assets/img/arrow.svg" alt="arrow svg" />
-              <a href="#">Games</a>
-              <img src="./assets/img/arrow.svg" alt="arrow svg" />
-              <a href="#">S.T.A.L.K.E.R 2</a>
-            </div>
-          </div>
+    <div class="zoom" id="zoom"></div>
+    <div class="fade" id="fade"></div>
+    <div class="bush" id="bush"></div>
 
-          <div class="game__container">
-            <div class="game__container-title">
-              <img src="./assets/img/stalker-title.png" alt="stalker title" />
-              <div class="button__container">
-                <button class="cta p-1">
-                  PREORDER NOW
-                  <span class="cta-span"></span>
-                </button>
-              </div>
-            </div>
-          </div>
+    <div class="afterzoom">
+      <div class="content">
+        <div class="logo-image-container">
+          <img id="logo-img" src="https://www.stalker2.com/_nuxt/img/assets/reuseable/logos/S2_logo.webp" alt="">
+        </div>
+        <div class="subheader-container">
+          <p id="subheader">
+            El 15 de mayo de 2018, GSC Game World anunció por su sitio web oficial que STALKER 2 volvió al período de desarrollo,con una fecha de lanzamiento indefinida establecida para el 2021,7​ Posteriormente se desveló que 2021 solo formaba parte de un reto criptográfico para los fans de habla rusa.8​
+            Unas semanas después, la desarrolladora confirmó que el videojuego se encontraba en una etapa muy temprana de desarrollo, ya que aún se está documentando el proyecto, y actualmente están en busca de una distribuidora para poder realizar el lanzamiento del mismo. Se ha confirmado que parte del equipo involucrado en el desarrollo, participó en la creación de S.T.A.L.K.E.R.: Shadow of Chernobyl, lanzado en 2007 y siendo el primer título de la serie.9​Xbox Series X/S y Microsoft Windows sería la única plataforma confirmada para el videojuego hasta la fecha, ya que es la única en donde se ha lanzado anteriormente la serie.
+            El 23 de marzo de 2020, conmemorando en el 13.º aniversario del lanzamiento de S.T.A.L.K.E.R.: Shadow of Chernobyl, GSC Game World, desarrolladora del título, publicó en su página de la red social VK, la primera imagen dentro del juego de STALKER 2, confirmando el uso del motor Unreal Engine 4 y asegurando que se publicara más información sobre el título a lo largo de este 2020.10​
+            Revelan las primeras imágenes oficiales de STALKER 2.11
+          </p>
+        </div>
+        <div class="line" id="line"></div>
+      </div>
+
+      <div class="characters__section">
+        <div class="section__title">
+          <h1 id="obs-title">S.T.A.L.K.E.R 2 FEATURES</h1>
         </div>
 
-        <div class="features">
-          <div class="features__container container">
-            <div class="features__cards">
-              <div class="features__card">
-                <div class="floating__img">
-                  <img src="./assets/img/stalker/rad1.webp" alt="" />
-                </div>
-                <img src="./assets/img/stalker/s-t-bg 1.png" alt="" />
-                <div class="banner">
-                  <h3>Gameplay</h3>
-                </div>
-                <div class="features__card-list">
-                  <p>Singleplayer</p>
-                  <p>Full control support</p>
-                  <p>Multiplayer</p>
-                </div>
-              </div>
-
-              <div class="features__card">
-                <div class="floating__img">
-                  <img src="./assets/img/stalker/rad2.webp" alt="" />
-                </div>
-                <img src="./assets/img/stalker/d-t-bg 1.png" alt="" />
-                <div class="banner">
-                  <h3>Language</h3>
-                </div>
-                <div class="features__card-list">
-                  <p>Spanish</p>
-                  <p>English</p>
-                  <p>Ukranian</p>
-                  <p>Chinise Simplified</p>
-                </div>
-              </div>
-
-              <div class="features__card">
-                <div class="floating__img">
-                  <img src="./assets/img/stalker/rad3.webp" alt="" />
-                </div>
-                <img src="./assets/img/stalker/u-t-bg 1.png" alt="" />
-                <div class="banner">
-                  <h3>System Requirements</h3>
-                </div>
-                <div class="features__card-list">
-                  <p>
-                    <span class="fw-bold">OS Version:</span>Windows 10 / Windows
-                    11
-                  </p>
-                  <p>
-                    <span class="fw-bold">Processor:</span>AMD Ryzen 7 3700X /
-                    Intel Core i7-9700K
-                  </p>
-                  <p><span class="fw-bold">Memory: </span>16 GB</p>
-                  <p>
-                    <span class="fw-bold">Graphics: </span>AMD Radeon RX 5700 XT
-                    8GB / NVIDIA GeForce RTX 2070 SUPER 8GB / NVIDIA GeForce GTX
-                    1080 Ti 11GB
-                  </p>
-                  <p><span class="fw-bold">Disc space: </span>150 GB SSD</p>
+        <div class="characters">
+          <div class="character-1 character-card">
+            <div class="card__img-container">
+              <img class="bg-card" src="https://cdn.akamai.steamstatic.com/steam/apps/1643320/ss_2d9b6c473b71f90e7076f50f64ec396a644da452.1920x1080.jpg?t=1655252279" alt="">
+              <div class="card__data">
+                <h1>All weapons were redisigned</h1>
+                <p>An example of a weapon is provided in the infobox to the right. Many others may be available within a specific game.</p>
+                <div class="arrow-container">
+                  <img src="./assets/img/arrow.svg" alt="">
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="tittle-characters">
-          <h3 class="fs-h3 fw-bold">Characters</h3>
-        </div>
-        <div class="slider-wrap-characters">
-          <div class="slider-characters">
-            <div class="slider-inner-characters slider-move">
-              <div class="characters__container container">
-                <div class="characters__card">
-                  <div class="gradient-border">
-                    <img
-                      src="./assets/img/stalker/characters/pngwing 1.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="gradient-border">
-                    <img
-                      src="./assets/img/stalker/characters/GordoGarca 1.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="gradient-border">
-                    <img
-                      src="./assets/img/stalker/characters/ClearSky 1.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="gradient-border">
-                    <img
-                      src="./assets/img/stalker/characters/GordoGarca 1.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="gradient-border">
-                    <img
-                      src="./assets/img/stalker/characters/pngwing 1.png"
-                      alt=""
-                    />
-                  </div>
+          <div class="character-2 character-card">
+            <div class="card__img-container">
+              <img class="bg-card" src="https://cdn.mos.cms.futurecdn.net/SJFwqdJvRfhUCXyWVRghVf.jpg" alt="">
+              <div class="card__data">
+                <h1>Classic & new mutants</h1>
+                <p>Mutants are animals or humans who have been warped by the Zone, changing both their physical appearance and behavior, usually making them more aggressive. Some humanoid mutants are by-products of C-Consciousness experiments and they all possess psychic powers</p>
+                <div class="arrow-container">
+                  <img src="./assets/img/arrow.svg" alt="">
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="story">
-          <div class="story__container container">
-            <h1 class="fs-h2 fw-bold">THE HEART OF CHORNOBYL</h1>
-            <div class="story__description">
-              <p>
-                The Heart of Chornobyl has never been beating so loud as it is
-                right now. The Zone is calling for stalkers, who are ready to
-                delve into the non-linear journey through a sinister open world
-                in the Eastern European post-apocalyptic setting.
-              </p>
-              <p>
-                S.T.A.L.K.E.R. 2: Heart of Chornobyl applies the full potential
-                of Unreal Engine 5 as well as motion capture and photogrammetry
-                technologies to provide you with benchmark-setting graphics and
-                ultimate immersion into the game world. The advanced artificial
-                intelligence system will compel the stalker to utilize a
-                tactical approach against numerous enemies, challenging and
-                keeping even the most hard-boiled players engaged. A-Life 2.0
-                life-simulating system builds a holistic live environment where
-                player's actions have an impact on the world of the Zone.
-              </p>
-              <p>
-                Dangerous mutants and deadly anomalies will not be the only
-                obstacles on your journey. You will feel all the griefs of a new
-                stalker life while searching and consuming rare and valuable
-                supplies — food, drinks, meds, alcohol, etc. Immersive survival
-                mechanics will be enriching the gameplay on the path through the
-                branched storyline.
-              </p>
+          <div class="character-3 character-card">
+            <div class="card__img-container">
+              <img class="bg-card" src="https://cdn2.unrealengine.com/egs-stalker2heartofchernobyl-gscgameworld-g1a-04-1920x1080-75213c45d80c.jpg" alt="">
+              <div class="card__data">
+                <h1>Next generation anomalies</h1>
+                <p>Anomalies are environmental hazards created by the Zone. They come in different shapes and forms and some can spawn artifacts. You can find a complete list of all the different anomalies here.</p>
+                <div class="arrow-container">
+                  <img src="./assets/img/arrow.svg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="character-4 character-card">
+            <div class="card__img-container">
+              <img class="bg-card" src="https://cdn2.unrealengine.com/egs-stalker2heartofchernobyl-gscgameworld-g1a-07-1920x1080-80fbd6f7269f.jpg" alt="">
+              <div class="card__data">
+                <h1>Multiplayer CO-OP</h1>
+                <p> Given the way this is being introduced, it seems likely that Stalker 2 will receive other updates to continue allowing the multiplayer to evolve, which could mean more modes and options down the line. That being said, there’s no word on Stalker 2 co-op yet. </p>
+                <div class="arrow-container">
+                  <img src="./assets/img/arrow.svg" alt="">
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="footer__container container">
-          <div class="footer__body">
-            <div class="footer__body-list">
-              <ul aria-label="FIRST">
-                <p class="p-2 fw-bold">Our Products</p>
-                <li>Our strategy: Powering Progress</li>
-                <li>Business customers</li>
-                <li>Investors</li>
-                <li>Careers</li>
-              </ul>
-            </div>
 
-            <div class="footer__vl"></div>
-
-            <div class="footer__body-list">
-              <ul aria-label="SECOND">
-                <p class="p-2 fw-bold">More about</p>
-                <li>Who we are</li>
-                <li>What we do</li>
-                <li>Our Values</li>
-                <li>Leadership</li>
-                <li>Our major projects</li>
-                <li>The brand</li>
-                <li>Annual publications</li>
-              </ul>
-            </div>
-            <div class="footer__body-list">
-              <ul aria-label="THIRD">
-                <p class="p-2 fw-bold">Can we help?</p>
-                <li>Job search</li>
-                <li>RockinGames global helpline</li>
-              </ul>
-            </div>
-          </div>
+      <div class="history_container">
+      <aside class="history_img">
+        <img src="./assets/img/danger.webp">
+        <img src="./assets/img/03.webp">
+        <img src="./assets/img/story-1.webp">
+        <img src="./assets/img/zone.webp">
+      </aside>
+      <section class="history_section">
+        <div class="history_text">
+          <h1 class="fs-h2 fw-bold">The danger</h1>
+          <p class="fw-regular">Bandits, mercenaries, official authority forces, lone stalkers, various factions, and mutants… The world of
+            «S.T.A.L.K.E.R. 2: Heart of Chornobyl» is full of predators who strive to seize your loot or get a taste of
+            human flesh. Analyzing their behavior and picking specific tactics for each species is the only way to win
+            or at least get out of the fight alive. Bandits, mercenaries, official authority forces, lone stalkers, various factions, and mutants… The world of
+            «S.T.A.L.K.E.R. 2: Heart of Chornobyl»</p>
+            
         </div>
-
-        <div class="hr container"></div>
-
-        <div class="footer__bottom">
-          <div class="footer__bottom-container container">
-            <ul>
-              <li>Accessibility</li>
-              <li>Terms and conditions</li>
-              <li>Privacy notices</li>
-              <li>Cookie policy</li>
-              <li>Fraud and scam alert</li>
-              <li>Contact us</li>
-            </ul>
+        <div class="history_text">
+          <h1 class="fs-h2 fw-bold">The Story</h1>
+          <p class="fw-regular">The Zone keeps hundreds of secrets and thousands of stories, revealing them only to the bravest and most
+            dexterous. Starting as a lone stalker, explore a unique post-apocalyptic world and decide who will get a
+            bullet and who is worthy of your helping hand. And while making decisions, be sure: many choices and actions
+            will have their own, sometimes far from the obvious, consequences.
+            To be a savior and a faithful friend, the figure for stalker's campfire legends. Or to carry out harsh, but
+            profitable missions for those who are in control of the Zone — you are free to be anyone here, even
+            yourself.</p>
           </div>
+          
+        <div class="history_text"> 
+          <h1 class="fs-h2 fw-bold">The Action</h1>
+          <p class="fw-regular">The Zone has become a perfect black market for weaponry from all around the world. This means that in the potential
+          arsenal of stalkers, there are more than 30 models of various firearms and the ingenuity of gunsmiths who are ready to
+          modify them for greater lethality and reliability. Define your distinctive combat style, select the most efficient
+          weapon, and customize it to your taste for maximal tactical advantage.
+          A wise stalker said: the most dangerous weapon is not the gun in your holster but the gumption, tenacity, and sharp reflexes. Keep that in mind on your path to the Heart of Chornobyl!
+            </p>  
+            
         </div>
-      </footer>
+        <div class="history_text"> 
+          <h1 class="fs-h2 fw-bold">The Zone</h1>
+          <p class=" fw-regular">Thousands of adventurers from all over the world find a new life here, in a mysterious and dangerous place on the land
+          of the Chornobyl Anomalous Exclusion Zone. Become one of them, and start your own through an immense, atmospheric open
+          world, full of dangers and mysteries. Shed light on the dark secrets of the second disaster, hunt mutants, and explore
+          the hazardous anomalies in search of precious artifacts.
+          Will your skill and courage be enough to overcome anomalous and human threats, or will you become one of many who lost to the Zone?</p>
+          
+        </div>
+      </section>
     </div>
+    
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="/assets/img/bg-1.png" alt="">
+          </div>
+          <div class="feature-card-data">
+            <h3>Gameplay</h3>
+            <p>Singleplayer</p>
+            <p>Full control support</p>
+            <p>Multiplayer</p>
+          </div>
+          <div class="arrow-container-1">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="/assets/img/bg-2.png" alt="">
+          </div>
+          <div class="feature-card-data">
+            <h3>Language</h3>
+            <p>Spanish</p>
+            <p>English</p>
+            <p>Ukranian</p>
+          </div>
+          <div class="arrow-container-1">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="/assets/img/bg-3.png" alt="">
+          </div>
+          <div class="feature-card-data">
+            <h3>System Requirements</h3>
+            <p>OS Version:Windows 10 / Windows 11</p>
+            <p>Processor:AMD Ryzen 7 3700X / Intel Core i7-9700K</p>
+            <p>Memory: 16 GB</p>
+          </div>
+          <div class="arrow-container-1">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="cat-container">
 
-    <script src="./assets/js/main.js"></script>
+      <div id="cat"></div>
+    </div>
+    <footer>
+      
+      <p>STALKER is a registered trademark of GSC GAME WORLD GLOBAL LTD. © 2022 GSC Game World.</p>
+      <ul>
+        <li>Discord</li>
+        <li>Twitter</li>
+        <li>Youtube</li>
+      </ul>
+    </footer>
   </body>
+  
+  <script src="./assets/js/textReveal.js"></script>
+  <script src="./assets/js/heroScroll.js"></script>
+  <script src="./assets/js/cursor.js"></script>
+  <script src="./assets/js/canvas.js"></script>
+  <script src="./assets/js/slide.js"></script>
+  <script src="./assets/js/scrollFixed.js"></script>
 </html>
